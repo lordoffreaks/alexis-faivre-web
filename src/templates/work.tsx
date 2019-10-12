@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import VimeoPlayer from 'react-player/lib/players/Vimeo'
 
 import IndexLayout from '../layouts'
 
@@ -33,7 +34,7 @@ const WorkTemplate: React.SFC<WorkTemplateProps> = ({
   <IndexLayout>
     <h1>{vimeoVideo.title}</h1>
     <p>The URL: {vimeoVideo.url}</p>
-    <img src={vimeoVideo.thumbnail.medium} alt={vimeoVideo.title} />
+    <VimeoPlayer url={vimeoVideo.url} controls />
   </IndexLayout>
 )
 
