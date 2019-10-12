@@ -1,34 +1,48 @@
 import React from 'react'
-import { slide as Menu } from 'react-burger-menu'
+import { fallDown as Menu } from 'react-burger-menu'
+import NavMenu from './NavMenu'
+
+const topHeight = '12px'
+const burgerIconHeight = '30px'
+const burgerIconsWidth = '36px'
+const burgerIconsColor = '#bdc3c7'
+
+const centered = {
+  left: '50%',
+  transform: 'translateX(-50%)'
+}
 
 const styles = {
   bmBurgerButton: {
     position: 'fixed',
-    width: '36px',
-    height: '30px',
-    top: '36px',
-    left: '50%',
-    transform: 'translateX(-50%)'
+    top: topHeight,
+    width: burgerIconsWidth,
+    height: burgerIconHeight,
+    ...centered
   },
   bmBurgerBars: {
-    background: '#373a47'
+    height: '12%',
+    background: burgerIconsColor
   },
   bmBurgerBarsHover: {
     background: '#a90000'
   },
   bmCrossButton: {
-    height: '24px',
-    width: '24px'
+    top: topHeight,
+    height: burgerIconHeight,
+    width: burgerIconsWidth,
+    ...centered
   },
   bmCross: {
-    background: '#bdc3c7'
+    background: burgerIconsColor,
+    height: burgerIconHeight
   },
   bmMenuWrap: {
     position: 'fixed',
     height: '100%'
   },
   bmMenu: {
-    background: '#373a47',
+    background: '#fff',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em'
   },
@@ -43,7 +57,7 @@ const styles = {
     display: 'inline-block'
   },
   bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
+    background: 'rgba(0, 0, 0, 0.1)'
   }
 }
 
@@ -57,15 +71,7 @@ const BurgerMenu: React.FunctionComponent<{}> = ({}) => {
       styles={styles}
     >
       <main id="page-wrap">
-        <a id="home" className="menu-item" href="/">
-          Home
-        </a>
-        <a id="about" className="menu-item" href="/about">
-          About
-        </a>
-        <a id="contact" className="menu-item" href="/contact">
-          Contact
-        </a>
+        <NavMenu />
       </main>
     </Menu>
   )

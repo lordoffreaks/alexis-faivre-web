@@ -4,5 +4,5 @@ export interface Action<T> extends AnyAction {
 }
 
 export enum ActionTypes {
-  SET_NAV_SECTION = 'SET_NAV_SECTION'
+  SET_NAVIGATION_ITEM = 'SET_NAVIGATION_ITEM'
 }

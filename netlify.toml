@@ -1,0 +1,14 @@
+[build]
+  # command = "cd frontend && npm install && npm rebuild node-sass && node_modules/.bin/gatsby build"
+  # base ="frontend"
+  command = "gatsby build"
+  publish = "public/"
+#  functions = "./lambda"
+
+# Change the version of Hugo you want to use on Netlify
+# by changing this environment variable.
+[build.environment]
+
+# Production context: All deploys from the Production branch set in your site's deploy settings will inherit these settings.
+[context.production]
+  environment = { NODE_ENV = "production" }

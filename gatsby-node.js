@@ -1,6 +1,51 @@
 'use strict'
-
 const path = require('path')
+
+const decodeHTMLEntities = text => {
+  const entities = [
+    ['amp', '&'],
+    ['apos', "'"],
+    ['#x27', "'"],
+    ['#x2F', '/'],
+    ['#39', "'"],
+    ['#47', '/'],
+    ['lt', '<'],
+    ['gt', '>'],
+    ['nbsp', ' '],
+    ['quot', '"']
+  ]
+
+  for (let i = 0, max = entities.length; i < max; ++i)
+    text = text.replace(
+      new RegExp('&' + entities[i][0] + ';', 'g'),
+      entities[i][1]
+    )
+
+  return text
+}
+
+const slugify = string => {
+  const a =
+    'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+  const b =
+    'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+
+  return string
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, '') // Trim - from end of text
+}
+
+const generateVimeoSlug = title => {
+  return `works/${slugify(decodeHTMLEntities(title))}`
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -11,7 +56,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // trip up. An empty string is still required in replacement to `null`.
 
   switch (node.internal.type) {
-    case 'MarkdownRemark': {
+    case 'MarkdownRemark':
       const { permalink, layout } = node.frontmatter
       const { relativePath } = getNode(node.parent)
 
@@ -34,7 +79,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'layout',
         value: layout || ''
       })
-    }
+      break
+
+    case 'Vimeo____video':
+      const { title } = node
+
+      // Used to generate URL to view this content.
+      createNodeField({
+        node,
+        name: 'slug',
+        value: generateVimeoSlug(title) || ''
+      })
+
+      // Used to determine a page layout.
+      createNodeField({
+        node,
+        name: 'layout',
+        value: 'work'
+      })
+      break
   }
 }
 
@@ -76,6 +139,48 @@ exports.createPages = async ({ graphql, actions }) => {
       //
       // Note that the template has to exist first, or else the build will fail.
       component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),
+      context: {
+        // Data passed to context is available in page queries as GraphQL variables.
+        slug
+      }
+    })
+  })
+
+  const vimeoVideo = await graphql(`
+    {
+      allVimeoVideo(limit: 1000) {
+        edges {
+          node {
+            fields {
+              layout
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (vimeoVideo.errors) {
+    console.error(vimeoVideo.errors)
+    throw new Error(vimeoVideo.errors)
+  }
+
+  vimeoVideo.data.allVimeoVideo.edges.forEach(({ node }) => {
+    const { slug, layout } = node.fields
+
+    createPage({
+      path: slug,
+      // This will automatically resolve the template to a corresponding
+      // `layout` frontmatter in the Markdown.
+      //
+      // Feel free to set any `layout` as you'd like in the frontmatter, as
+      // long as the corresponding template file exists in src/templates.
+      // If no template is set, it will fall back to the default `work`
+      // template.
+      //
+      // Note that the template has to exist first, or else the build will fail.
+      component: path.resolve(`./src/templates/${layout || 'work'}.tsx`),
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
         slug

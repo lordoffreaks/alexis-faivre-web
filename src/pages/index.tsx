@@ -1,25 +1,88 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import Page from '../components/Page'
-import Container from '../components/Container'
 import IndexLayout from '../layouts'
 import LatestWorks from '../components/LatestWorks'
 
-import '../index.css'
+type AllMarkdownRemarkNode = {
+  node: {
+    excerpt: string
+    fields: {
+      slug: string
+      thumbnail: string
+    }
+    frontmatter: {
+      title: string
+      url: string
+    }
+  }
+}
 
-const IndexPage = () => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <LatestWorks />
-        <Link to="/page-2/">Go to page 2</Link>
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+type VimeoVideoNode = {
+  node: {
+    thumbnail: {
+      large: string
+      medium: string
+      small: string
+    }
+    title: string
+    url: string
+    fields: {
+      slug: string
+    }
+  }
+}
+
+type Props = {
+  data: {
+    allVimeoVideo: {
+      edges: Array<VimeoVideoNode>
+    }
+  }
+}
+
+const IndexPage: React.FC<Props> = ({
+  data: {
+    allVimeoVideo: { edges }
+  }
+}) => {
+  const items = edges.map(({ node }) => {
+    const {
+      fields: { slug },
+      ...rest
+    } = node
+    return {
+      slug,
+      ...rest
+    }
+  })
+
+  return (
+    <IndexLayout>
+      <LatestWorks items={items} />
+    </IndexLayout>
+  )
+}
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allVimeoVideo {
+      edges {
+        node {
+          thumbnail {
+            large
+            medium
+            small
+          }
+          title
+          url
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`

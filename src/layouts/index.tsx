@@ -1,11 +1,13 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import Container from '@material-ui/core/Container'
 
 import Header from '../components/Header'
 import LayoutRoot from '../components/LayoutRoot'
 import LayoutMain from '../components/LayoutMain'
 import BurgerMenu from '../components/BurgerMenu'
+import { Hidden } from '@material-ui/core'
 
 interface StaticQueryProps {
   site: {
@@ -34,13 +36,20 @@ const IndexLayout: React.FC = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description
+            },
             { name: 'keywords', content: data.site.siteMetadata.keywords }
           ]}
         />
-        <BurgerMenu />
-        <Header title={data.site.siteMetadata.title} />
-        <LayoutMain>{children}</LayoutMain>
+        <Hidden smUp>
+          <BurgerMenu />
+        </Hidden>
+        <Container>
+          <Header title={data.site.siteMetadata.title} />
+          <LayoutMain>{children}</LayoutMain>
+        </Container>
       </LayoutRoot>
     )}
   />

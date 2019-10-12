@@ -1,11 +1,15 @@
 import { ActionTypes, Action } from '../actions/action-types'
 import { createReducer } from '../helpers'
+import { NavigationItem } from '../../models/navigation'
+import { State } from '../state'
 
-const setNavSection = (_: any, action: Action<ActionTypes.SET_NAV_SECTION>) =>
-  action.section
+const setNavigationItem = (
+  _: State,
+  action: Action<ActionTypes.SET_NAVIGATION_ITEM>
+) => action.navigationItem
 
-const navSection = createReducer('', {
-  [ActionTypes.SET_NAV_SECTION]: setNavSection
+const navigationItem = createReducer(NavigationItem.home, {
+  [ActionTypes.SET_NAVIGATION_ITEM]: setNavigationItem
 })
 
-export { navSection }
+export { navigationItem }

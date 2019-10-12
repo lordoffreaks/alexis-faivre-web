@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 
 import createStore from './src/state/store'
+import './src/index.css'
 
 // eslint-disable-next-line react/display-name,react/prop-types
 export default ({ element }) => {
