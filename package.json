@@ -42,7 +42,7 @@
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-vimeo": "^1.1.8",
     "gatsby-transformer-json": "^2.2.0",
-    "gatsby-transformer-remark": "^2.5.0",
+    "gatsby-transformer-remark": "^2.6.30",
     "gatsby-transformer-sharp": "^2.2.0",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.11",
