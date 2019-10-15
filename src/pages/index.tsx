@@ -3,20 +3,21 @@ import { graphql } from 'gatsby'
 
 import IndexLayout from '../layouts'
 import LatestWorks from '../components/LatestWorks'
+import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 
-type AllMarkdownRemarkNode = {
-  node: {
-    excerpt: string
-    fields: {
-      slug: string
-      thumbnail: string
-    }
-    frontmatter: {
-      title: string
-      url: string
-    }
-  }
-}
+// type AllMarkdownRemarkNode = {
+//   node: {
+//     excerpt: string
+//     fields: {
+//       slug: string
+//       thumbnail: string
+//     }
+//     frontmatter: {
+//       title: string
+//       url: string
+//     }
+//   }
+// }
 
 type VimeoVideoNode = {
   node: {
@@ -59,7 +60,18 @@ const IndexPage: React.FC<Props> = ({
 
   return (
     <IndexLayout>
-      <LatestWorks items={items} />
+      <div className="section" data-anchor={NavigationItem.home}>
+        <p>Section 1 (welcome to fullpage.js)</p>
+        <LatestWorks items={items} />
+      </div>
+
+      {navigationItemExtensions
+        .filter(({ type }) => type !== NavigationItem.home)
+        .map(({ type, label }) => (
+          <div className="section" data-anchor={type} key={type}>
+            Hello you are in section {label}
+          </div>
+        ))}
     </IndexLayout>
   )
 }

@@ -188,3 +188,19 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+// Only required by `react-fullpage`
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /@fullpage/,
+            use: loaders.null()
+          }
+        ]
+      }
+    })
+  }
+}

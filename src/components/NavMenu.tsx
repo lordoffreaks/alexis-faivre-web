@@ -16,37 +16,42 @@ type DispatchProps = {
   setNavigationItem: (navigationItem: NavigationItem) => void
 }
 
-type OwnProps = {}
+type OwnProps = {
+  api: any
+}
 
 type Props = OwnProps & StateProps & DispatchProps
 
 const NavMenu: React.FunctionComponent<Props> = ({
+  api,
   navigationItem,
   setNavigationItem
 }) => {
-  const handleListItemClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    type: NavigationItem
+  const handleListItemClick = (type: NavigationItem) => (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    event.preventDefault()
+    e && e.preventDefault()
     setNavigationItem(type)
+    api.moveTo(type)
   }
 
   return (
-    <List>
-      {navigationItemExtensions.map(({ type, label }) => {
-        return (
-          <ListItem
-            key={type}
-            button
-            selected={navigationItem === type}
-            onClick={event => handleListItemClick(event, type)}
-          >
-            <ListItemText primary={label} />
-          </ListItem>
-        )
-      })}
-    </List>
+    <div style={{ position: 'sticky', top: 0 }}>
+      <List>
+        {navigationItemExtensions.map(({ type, label }) => {
+          return (
+            <ListItem
+              key={type}
+              button
+              selected={navigationItem === type}
+              onClick={handleListItemClick(type)}
+            >
+              <ListItemText primary={label} />
+            </ListItem>
+          )
+        })}
+      </List>
+    </div>
   )
 }
 

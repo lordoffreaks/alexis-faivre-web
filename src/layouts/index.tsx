@@ -1,13 +1,10 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import Container from '@material-ui/core/Container'
-
-import Header from '../components/Header'
+import FullPage from '../components/FullPage'
 import LayoutRoot from '../components/LayoutRoot'
-import LayoutMain from '../components/LayoutMain'
-import BurgerMenu from '../components/BurgerMenu'
-import { Hidden } from '@material-ui/core'
+// @ts-ignore
+import ReactFullpage from '@fullpage/react-fullpage'
 
 interface StaticQueryProps {
   site: {
@@ -43,13 +40,7 @@ const IndexLayout: React.FC = ({ children }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords }
           ]}
         />
-        <Hidden smUp>
-          <BurgerMenu />
-        </Hidden>
-        <Container>
-          <Header title={data.site.siteMetadata.title} />
-          <LayoutMain>{children}</LayoutMain>
-        </Container>
+        <FullPage data={data}>{children}</FullPage>
       </LayoutRoot>
     )}
   />

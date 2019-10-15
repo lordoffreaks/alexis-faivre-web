@@ -39,7 +39,7 @@ const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
       <Grid container spacing={3}>
         {items.map(item => {
           return (
-            <Grid item xs={12} sm={6}>
+            <Grid key={item.slug} item xs={12} sm={6}>
               <Typography component="p">
                 <Link
                   onClick={_ => setNavigationItem(NavigationItem.edition)}

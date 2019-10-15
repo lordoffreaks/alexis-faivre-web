@@ -61,7 +61,7 @@ const styles = {
   }
 }
 
-const BurgerMenu: React.FunctionComponent<{}> = ({}) => {
+const BurgerMenu: React.FunctionComponent<{ api: any }> = ({ api }) => {
   return (
     <Menu
       width="100%"
@@ -71,7 +71,7 @@ const BurgerMenu: React.FunctionComponent<{}> = ({}) => {
       styles={styles}
     >
       <main id="page-wrap">
-        <NavMenu />
+        <NavMenu api={api} />
       </main>
     </Menu>
   )
