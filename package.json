@@ -1,11 +1,14 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
+  "name": "alexis-faivre-web",
+  "description": "Personal website for Alexis Faivre.",
   "version": "1.0.0",
   "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
+  "author": "Alejandro Tabares <info@amajua.com>",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "editing",
+    "direction",
+    "video"
   ],
   "license": "MIT",
   "main": "n/a",
