@@ -32,15 +32,15 @@ import Observer from '@researchgate/react-intersection-observer'
 
 type VimeoVideoNode = {
   node: {
-    thumbnail: {
-      large: string
-      medium: string
-      small: string
-    }
     title: string
     url: string
     fields: {
       slug: string
+    }
+    coverImage: {
+      childImageSharp: {
+        fluid: any
+      }
     }
   }
 }
@@ -123,15 +123,19 @@ export const pageQuery = graphql`
     allVimeoVideo {
       edges {
         node {
-          thumbnail {
-            large
-            medium
-            small
-          }
           title
           url
           fields {
             slug
+          }
+          coverImage {
+            childImageSharp {
+              id
+              fluid(maxWidth: 500, quality: 100) {
+                ...GatsbyImageSharpFluid
+                presentationWidth
+              }
+            }
           }
         }
       }

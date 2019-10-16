@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { Link } from 'gatsby'
-import CardMedia from '@material-ui/core/CardMedia'
+import Img from 'gatsby-image'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { NavigationItem } from '../models/navigation'
@@ -10,14 +10,14 @@ import * as actionCreators from '../state/actions/navigation-item'
 import { State } from '../state/state'
 
 interface LatestWork {
-  thumbnail: {
-    large: string
-    medium: string
-    small: string
-  }
   title: string
   url: string
   slug: string
+  coverImage: {
+    childImageSharp: {
+      fluid: any
+    }
+  }
 }
 
 interface OwnProps {
@@ -45,15 +45,7 @@ const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
                   onClick={_ => setNavigationItem(NavigationItem.edition)}
                   to={`/${item.slug}`}
                 >
-                  <CardMedia
-                    style={{
-                      height: 0,
-                      paddingTop: '56.25%' // 16:9
-                    }}
-                    image={item.thumbnail.medium}
-                    title={item.title}
-                  />
-                  {/* <img src={item.thumbnail.medium} alt={item.title} /> */}
+                  <Img fluid={item.coverImage.childImageSharp.fluid} />
                 </Link>
               </Typography>
             </Grid>

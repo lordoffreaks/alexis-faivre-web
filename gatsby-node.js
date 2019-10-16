@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const decodeHTMLEntities = text => {
   const entities = [
@@ -47,8 +48,15 @@ const generateVimeoSlug = title => {
   return `works/${slugify(decodeHTMLEntities(title))}`
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = async ({
+  node,
+  actions,
+  getNode,
+  cache,
+  store,
+  createNodeId
+}) => {
+  const { createNodeField, createNode } = actions
 
   // Sometimes, optional fields tend to get not picked up by the GraphQL
   // interpreter if not a single content uses it. Therefore, we're putting them
@@ -82,7 +90,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       break
 
     case 'Vimeo____video':
-      const { title } = node
+      const { title, thumbnail } = node
 
       // Used to generate URL to view this content.
       createNodeField({
@@ -97,6 +105,25 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'layout',
         value: 'work'
       })
+
+      try {
+        const nodeName = `coverImage`
+        const fileNode = await createRemoteFileNode({
+          url: thumbnail.hd,
+          store,
+          cache,
+          createNode,
+          createNodeId
+        })
+        const fileNodeLink = `${nodeName}___NODE`
+        node[fileNodeLink] = fileNode.id
+      } catch (e) {
+        console.error(
+          `Failed creating image ${thumbnail.hd} for node: ${title}`
+        )
+        console.error(e)
+      }
+
       break
   }
 }
