@@ -15,6 +15,8 @@ import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 
 // import 'intersection-observer' // optional polyfill
 import Observer from '@researchgate/react-intersection-observer'
+import { Element } from 'react-scroll'
+import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
 
 // type AllMarkdownRemarkNode = {
 //   node: {
@@ -59,6 +61,8 @@ const IndexPage: React.FC<Props> = memo(
       allVimeoVideo: { edges }
     }
   }) => {
+    const setNavigationItem = useSetNavigationItem()
+
     const items = edges.map(({ node }) => {
       const {
         fields: { slug },
@@ -71,7 +75,9 @@ const IndexPage: React.FC<Props> = memo(
     })
 
     const handleIntersection = (event: IntersectionObserverEntry) => {
-      event.isIntersecting && console.log(event.isIntersecting, event.target.id)
+      if (event.isIntersecting) {
+        setNavigationItem(event.target.id as NavigationItem)
+      }
     }
 
     const options = {
@@ -102,10 +108,14 @@ const IndexPage: React.FC<Props> = memo(
               {navigationItemExtensions
                 .filter(({ type }) => type !== NavigationItem.home)
                 .map(({ type, label }) => (
-                  <Observer {...options}>
-                    <div style={{ margin: '200px 0' }} id={type} key={type}>
+                  <Observer {...options} key={type}>
+                    <Element
+                      name={type}
+                      id={type}
+                      style={{ marginBottom: '200px' }}
+                    >
                       Hello you are in section {label}
-                    </div>
+                    </Element>
                   </Observer>
                 ))}
             </Grid>

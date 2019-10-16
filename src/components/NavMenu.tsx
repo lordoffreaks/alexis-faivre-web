@@ -1,34 +1,31 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators, Dispatch } from 'redux'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
-import * as actionCreators from '../state/actions/navigation-item'
+import { scroller } from 'react-scroll'
+import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
+import { useSelector } from 'react-redux'
 import { State } from '../state/state'
 
-type StateProps = {
-  navigationItem: NavigationItem
-}
-
-type DispatchProps = {
-  setNavigationItem: (navigationItem: NavigationItem) => void
-}
-
-type OwnProps = {}
-
-type Props = OwnProps & StateProps & DispatchProps
-
-const NavMenu: React.FunctionComponent<Props> = ({
-  navigationItem,
-  setNavigationItem
-}) => {
+const NavMenu: React.FunctionComponent<{}> = () => {
+  const navigationItem = useSelector(
+    ({ navigationItem }: State) => navigationItem
+  )
+  const setNavigationItem = useSetNavigationItem()
   const handleListItemClick = (type: NavigationItem) => (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     e && e.preventDefault()
     setNavigationItem(type)
+
+    scroller.scrollTo(type, {
+      duration: 1500,
+      // delay: 100,
+      smooth: true
+      // containerId: 'ContainerElementID',
+      // offset: 50, // Scrolls to element + 50 pixels down the page
+    })
   }
 
   return (
@@ -51,16 +48,4 @@ const NavMenu: React.FunctionComponent<Props> = ({
   )
 }
 
-const mapStateToProps = (state: State) => ({
-  navigationItem: state.navigationItem
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(actionCreators, dispatch)
-
-const NavMenuWrapper = connect<StateProps, DispatchProps, OwnProps>(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavMenu)
-
-export default NavMenuWrapper
+export default NavMenu
