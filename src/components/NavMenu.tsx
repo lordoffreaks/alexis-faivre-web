@@ -16,14 +16,11 @@ type DispatchProps = {
   setNavigationItem: (navigationItem: NavigationItem) => void
 }
 
-type OwnProps = {
-  api: any
-}
+type OwnProps = {}
 
 type Props = OwnProps & StateProps & DispatchProps
 
 const NavMenu: React.FunctionComponent<Props> = ({
-  api,
   navigationItem,
   setNavigationItem
 }) => {
@@ -32,7 +29,6 @@ const NavMenu: React.FunctionComponent<Props> = ({
   ) => {
     e && e.preventDefault()
     setNavigationItem(type)
-    api.moveTo(type)
   }
 
   return (

@@ -19,15 +19,16 @@
     "start": "npm run dev",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc --noEmit",
+    "preserve": "npm run build",
     "serve": "gatsby serve"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "@fullpage/react-fullpage": "^0.1.16",
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
+    "@researchgate/react-intersection-observer": "^1.0.1",
     "babel-plugin-styled-components": "^1.10.1",
     "classnames": "^2.2.6",
     "dotenv": "^8.1.0",

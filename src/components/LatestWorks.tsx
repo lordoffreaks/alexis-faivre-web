@@ -40,7 +40,7 @@ const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
         {items.map(item => {
           return (
             <Grid key={item.slug} item xs={12} sm={6}>
-              <Typography component="p">
+              <Typography component="div">
                 <Link
                   onClick={_ => setNavigationItem(NavigationItem.edition)}
                   to={`/${item.slug}`}

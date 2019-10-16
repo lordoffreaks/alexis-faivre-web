@@ -40,7 +40,7 @@ const IndexLayout: React.FC = ({ children }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords }
           ]}
         />
-        <FullPage data={data}>{children}</FullPage>
+        {children}
       </LayoutRoot>
     )}
   />

@@ -9,23 +9,26 @@ export enum NavigationItem {
 type NavigationItemExtension = {
   type: NavigationItem
   label: string
+  color: string
 }
 
 const generate = (
   type: NavigationItem,
-  label: string
+  label: string,
+  color: string
 ): NavigationItemExtension => {
   return {
     type,
-    label
+    label,
+    color
   }
 }
 
 // Order of this Array reflects order in the UI
 export const navigationItemExtensions: Array<NavigationItemExtension> = [
-  generate(NavigationItem.home, 'HOME'),
-  generate(NavigationItem.direction, 'DIRECTION'),
-  generate(NavigationItem.edition, 'EDITION'),
-  generate(NavigationItem.aboutMe, 'ABOUT ME'),
-  generate(NavigationItem.contact, 'CONTACT')
+  generate(NavigationItem.home, 'HOME', '#FFF'),
+  generate(NavigationItem.direction, 'DIRECTION', '#000'),
+  generate(NavigationItem.edition, 'EDITION', '#AAA'),
+  generate(NavigationItem.aboutMe, 'ABOUT ME', '#333'),
+  generate(NavigationItem.contact, 'CONTACT', '#777')
 ]
