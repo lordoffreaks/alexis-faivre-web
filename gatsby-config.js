@@ -63,6 +63,14 @@ module.exports = {
         // },
       }
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Montserrat', 'Raleway']
+        }
+      }
+    },
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
