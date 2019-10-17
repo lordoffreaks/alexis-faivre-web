@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid'
 import { NavigationItem } from '../models/navigation'
 import * as actionCreators from '../state/actions/navigation-item'
 import { State } from '../state/state'
+import playIcon from '../svg/play.svg'
 
 interface LatestWork {
   title: string
@@ -44,7 +45,20 @@ const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
                 <Link
                   onClick={_ => setNavigationItem(NavigationItem.edition)}
                   to={`/${item.slug}`}
+                  style={{ position: 'relative', display: 'block' }}
                 >
+                  <img
+                    style={{
+                      zIndex: 1,
+                      margin: 'auto',
+                      position: 'absolute',
+                      top: '0',
+                      bottom: '0' /* vertical center */,
+                      left: '0',
+                      right: '0' /* horizontal center */
+                    }}
+                    src={playIcon}
+                  />
                   <Img fluid={item.coverImage.childImageSharp.fluid} />
                 </Link>
               </Typography>
