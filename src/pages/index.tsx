@@ -11,26 +11,8 @@ import NavMenu from '../components/NavMenu'
 
 import IndexLayout from '../layouts'
 import LatestWorks from '../components/LatestWorks'
+import Section from '../components/Section'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
-
-// import 'intersection-observer' // optional polyfill
-import Observer from '@researchgate/react-intersection-observer'
-import { Element } from 'react-scroll'
-import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
-
-// type AllMarkdownRemarkNode = {
-//   node: {
-//     excerpt: string
-//     fields: {
-//       slug: string
-//       thumbnail: string
-//     }
-//     frontmatter: {
-//       title: string
-//       url: string
-//     }
-//   }
-// }
 
 type VimeoVideoNode = {
   node: {
@@ -61,8 +43,6 @@ const IndexPage: React.FC<Props> = memo(
       allVimeoVideo: { edges }
     }
   }) => {
-    const setNavigationItem = useSetNavigationItem()
-
     const items = edges.map(({ node }) => {
       const {
         fields: { slug },
@@ -73,18 +53,6 @@ const IndexPage: React.FC<Props> = memo(
         ...rest
       }
     })
-
-    const handleIntersection = (event: IntersectionObserverEntry) => {
-      if (event.isIntersecting) {
-        setNavigationItem(event.target.id as NavigationItem)
-      }
-    }
-
-    const options = {
-      onChange: handleIntersection,
-      root: '#scrolling-container',
-      rootMargin: '0% 0% -25%'
-    }
 
     return (
       <IndexLayout>
@@ -100,24 +68,29 @@ const IndexPage: React.FC<Props> = memo(
               </Grid>
             </Hidden>
             <Grid item xs={12} md={10}>
-              <div className="section" data-anchor={NavigationItem.home}>
-                <p>Section 1 (welcome to fullpage.js)</p>
+              <Section name={NavigationItem.home}>
                 <LatestWorks items={items} />
-              </div>
+              </Section>
 
-              {navigationItemExtensions
-                .filter(({ type }) => type !== NavigationItem.home)
-                .map(({ type, label }) => (
-                  <Observer {...options} key={type}>
-                    <Element
-                      name={type}
-                      id={type}
-                      style={{ marginBottom: '200px' }}
-                    >
-                      Hello you are in section {label}
-                    </Element>
-                  </Observer>
-                ))}
+              <Section name={NavigationItem.direction}>
+                Hello you are in section{' '}
+                {navigationItemExtensions[NavigationItem.direction].label}
+              </Section>
+
+              <Section name={NavigationItem.edition}>
+                Hello you are in section{' '}
+                {navigationItemExtensions[NavigationItem.edition].label}
+              </Section>
+
+              <Section name={NavigationItem.aboutMe}>
+                Hello you are in section{' '}
+                {navigationItemExtensions[NavigationItem.aboutMe].label}
+              </Section>
+
+              <Section name={NavigationItem.contact}>
+                Hello you are in section{' '}
+                {navigationItemExtensions[NavigationItem.contact].label}
+              </Section>
             </Grid>
           </Grid>
         </Container>

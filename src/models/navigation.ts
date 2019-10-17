@@ -24,11 +24,23 @@ const generate = (
   }
 }
 
+type NavigationItemExtensions = {
+  [key in NavigationItem]: NavigationItemExtension
+}
+
 // Order of this Array reflects order in the UI
-export const navigationItemExtensions: Array<NavigationItemExtension> = [
-  generate(NavigationItem.home, 'HOME', '#FFF'),
-  generate(NavigationItem.direction, 'DIRECTION', '#000'),
-  generate(NavigationItem.edition, 'EDITION', '#AAA'),
-  generate(NavigationItem.aboutMe, 'ABOUT ME', '#333'),
-  generate(NavigationItem.contact, 'CONTACT', '#777')
-]
+export const navigationItemExtensions: NavigationItemExtensions = {
+  [NavigationItem.home]: generate(NavigationItem.home, 'HOME', '#FFF'),
+  [NavigationItem.direction]: generate(
+    NavigationItem.direction,
+    'DIRECTION',
+    '#000'
+  ),
+  [NavigationItem.edition]: generate(NavigationItem.edition, 'EDITION', '#AAA'),
+  [NavigationItem.aboutMe]: generate(
+    NavigationItem.aboutMe,
+    'ABOUT ME',
+    '#333'
+  ),
+  [NavigationItem.contact]: generate(NavigationItem.contact, 'CONTACT', '#777')
+}
