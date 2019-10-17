@@ -4,12 +4,14 @@ import { graphql } from 'gatsby'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
+import Typography from '@material-ui/core/Typography'
 
 import BurgerMenu from '../components/BurgerMenu'
 // import Header from './Header'
 import NavMenu from '../components/NavMenu'
 
 import IndexLayout from '../layouts'
+import Header from '../components/Header'
 import LatestWorks from '../components/LatestWorks'
 import Section from '../components/Section'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
@@ -60,7 +62,7 @@ const IndexPage: React.FC<Props> = memo(
           <BurgerMenu />
         </Hidden>
         <Container>
-          {/* <Header title={data.site.siteMetadata.title} /> */}
+          <Header title={`Web of Alexis Faivre`} />
           <Grid container>
             <Hidden mdDown>
               <Grid item md={2}>
@@ -69,11 +71,25 @@ const IndexPage: React.FC<Props> = memo(
             </Hidden>
             <Grid item xs={12} md={10}>
               <Section name={NavigationItem.home}>
-                <LatestWorks items={items} />
+                <Grid container>
+                  <Grid item xs={12} md={6}>
+                    <Typography component="h1">
+                      Hello my name is <span>ALEXIS</span>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Typography component="p">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      aenean molestie mauris velit, in aliquet neque elementum
+                      nec. etiam sit amet mauris non tellus laoreet porttitor.
+                      integer quis placerat erat, nec faucibus dui.
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Section>
 
               <Section name={NavigationItem.direction}>
-                Hello you are in section{' '}
+                <LatestWorks items={items} />
                 {navigationItemExtensions[NavigationItem.direction].label}
               </Section>
 

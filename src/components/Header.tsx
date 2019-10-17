@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import logo from '../svg/logo-alexis.svg'
 
 interface HeaderProps {
   title: string
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => (
-  <div>
-    <Link to="/">{title}</Link>
+  <div style={{ textAlign: 'center' }}>
+    <img src={logo} alt={title} />
   </div>
 )
 
