@@ -5,14 +5,9 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 import { scroller } from 'react-scroll'
 import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
-import { useSelector } from 'react-redux'
-import { State } from '../state/state'
 
 const NavMenu: React.FunctionComponent<{}> = () => {
-  const navigationItem = useSelector(
-    ({ navigationItem }: State) => navigationItem
-  )
-  const setNavigationItem = useSetNavigationItem()
+  const { navigationItem, setNavigationItem } = useSetNavigationItem()
   const handleListItemClick = (type: NavigationItem) => (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {

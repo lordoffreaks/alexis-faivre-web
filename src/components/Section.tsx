@@ -10,7 +10,7 @@ type Props = {
 }
 
 const Section: React.FunctionComponent<Props> = ({ name, children }) => {
-  const setNavigationItem = useSetNavigationItem()
+  const { setNavigationItem } = useSetNavigationItem()
   const handleIntersection = (event: IntersectionObserverEntry) => {
     if (event.isIntersecting) {
       setNavigationItem(event.target.id as NavigationItem)
