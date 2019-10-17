@@ -1,14 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators, Dispatch } from 'redux'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import { NavigationItem } from '../models/navigation'
-import * as actionCreators from '../state/actions/navigation-item'
-import { State } from '../state/state'
-import playIcon from '../svg/play.svg'
+
+import VideoImage from './VideoImage'
+import { FluidObject } from 'gatsby-image'
 
 interface LatestWork {
   title: string
@@ -16,7 +11,7 @@ interface LatestWork {
   slug: string
   coverImage: {
     childImageSharp: {
-      fluid: any
+      fluid: FluidObject
     }
   }
 }
@@ -27,40 +22,20 @@ interface OwnProps {
 
 type StateProps = {}
 
-type DispatchProps = {
-  setNavigationItem: (navigationItem: NavigationItem) => void
-}
+type DispatchProps = {}
 
 type Props = OwnProps & StateProps & DispatchProps
 
-const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
+const LatestWorks: React.FC<Props> = ({ items }) => {
   return (
     <>
       <h2>LATEST WORKS</h2>
       <Grid container spacing={3}>
-        {items.map(item => {
+        {items.map(({ slug, coverImage, url }) => {
           return (
-            <Grid key={item.slug} item xs={12} sm={6}>
+            <Grid key={slug} item xs={12} sm={6}>
               <Typography component="div">
-                <Link
-                  onClick={_ => setNavigationItem(NavigationItem.edition)}
-                  to={`/${item.slug}`}
-                  style={{ position: 'relative', display: 'block' }}
-                >
-                  <img
-                    style={{
-                      zIndex: 1,
-                      margin: 'auto',
-                      position: 'absolute',
-                      top: '0',
-                      bottom: '0' /* vertical center */,
-                      left: '0',
-                      right: '0' /* horizontal center */
-                    }}
-                    src={playIcon}
-                  />
-                  <Img fluid={item.coverImage.childImageSharp.fluid} />
-                </Link>
+                <VideoImage coverImage={coverImage} url={url} />
               </Typography>
             </Grid>
           )
@@ -70,16 +45,4 @@ const LatestWorks: React.FC<Props> = ({ items, setNavigationItem }) => {
   )
 }
 
-const mapStateToProps = (state: State) => ({
-  navigationItem: state.navigationItem
-})
-
-const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators(actionCreators, dispatch)
-
-const LatestWorksWrapper = connect<StateProps, DispatchProps, OwnProps>(
-  mapStateToProps,
-  mapDispatchToProps
-)(LatestWorks)
-
-export default LatestWorksWrapper
+export default LatestWorks

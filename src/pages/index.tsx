@@ -18,6 +18,7 @@ import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 
 type VimeoVideoNode = {
   node: {
+    id: string
     title: string
     url: string
     fields: {
@@ -122,6 +123,7 @@ export const pageQuery = graphql`
     allVimeoVideo {
       edges {
         node {
+          id
           title
           url
           fields {
