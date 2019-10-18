@@ -31,11 +31,11 @@ const LatestWorks: React.FC<Props> = ({ items }) => {
     <>
       <h2>LATEST WORKS</h2>
       <Grid container spacing={3}>
-        {items.map(({ slug, coverImage, url }) => {
+        {items.map(({ slug, coverImage, url, title }) => {
           return (
             <Grid key={slug} item xs={12} sm={6}>
               <Typography component="div">
-                <VideoImage coverImage={coverImage} url={url} />
+                <VideoImage coverImage={coverImage} url={url} title={title} />
               </Typography>
             </Grid>
           )
