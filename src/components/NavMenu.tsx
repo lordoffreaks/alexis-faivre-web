@@ -24,22 +24,20 @@ const NavMenu: React.FunctionComponent<{}> = () => {
   }
 
   return (
-    <div style={{ position: 'sticky', top: 0 }}>
-      <List>
-        {Object.values(navigationItemExtensions).map(({ type, label }) => {
-          return (
-            <ListItem
-              key={type}
-              button
-              selected={navigationItem === type}
-              onClick={handleListItemClick(type)}
-            >
-              <ListItemText primary={label} />
-            </ListItem>
-          )
-        })}
-      </List>
-    </div>
+    <List>
+      {Object.values(navigationItemExtensions).map(({ type, label }) => {
+        return (
+          <ListItem
+            key={type}
+            button
+            selected={navigationItem === type}
+            onClick={handleListItemClick(type)}
+          >
+            <ListItemText primary={label} />
+          </ListItem>
+        )
+      })}
+    </List>
   )
 }
 

@@ -1,10 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import FullPage from '../components/FullPage'
 import LayoutRoot from '../components/LayoutRoot'
-// @ts-ignore
-import ReactFullpage from '@fullpage/react-fullpage'
 
 interface StaticQueryProps {
   site: {

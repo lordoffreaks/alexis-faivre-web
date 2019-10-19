@@ -1,24 +1,20 @@
 import React from 'react'
 import { fallDown as Menu } from 'react-burger-menu'
 import NavMenu from './NavMenu'
+import { centered } from '../hooks/useStyles'
 
 const topHeight = '12px'
 const burgerIconHeight = '30px'
 const burgerIconsWidth = '36px'
 const burgerIconsColor = '#bdc3c7'
 
-const centered = {
-  left: '50%',
-  transform: 'translateX(-50%)'
-}
-
 const styles = {
   bmBurgerButton: {
+    ...centered,
     position: 'fixed',
     top: topHeight,
     width: burgerIconsWidth,
-    height: burgerIconHeight,
-    ...centered
+    height: burgerIconHeight
   },
   bmBurgerBars: {
     height: '12%',
@@ -28,10 +24,10 @@ const styles = {
     background: '#a90000'
   },
   bmCrossButton: {
+    ...centered,
     top: topHeight,
     height: burgerIconHeight,
-    width: burgerIconsWidth,
-    ...centered
+    width: burgerIconsWidth
   },
   bmCross: {
     background: burgerIconsColor,
@@ -54,7 +50,9 @@ const styles = {
     padding: '0.8em'
   },
   bmItem: {
-    display: 'inline-block'
+    ...centered,
+    display: 'block',
+    width: '90%'
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.1)'

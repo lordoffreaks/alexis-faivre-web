@@ -1,5 +1,7 @@
 body {
   font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -11,22 +13,6 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.section {
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  z-index: 0;
-  /* transform: rotate(90deg);
-  transform-origin: 0 0;
-  transition: transform 1s, opacity 0.8s; */
-}
-
-.section:target {
-  /* transform: rotate(0deg); */
-  z-index: 1;
-}
-
-.section:target ~ .section {
-  opacity: 0;
-  /* transform: rotate(-90deg); */
+.bm-item {
+  transform: translateX(-50%) !important;
 }

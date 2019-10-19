@@ -14,7 +14,9 @@ import IndexLayout from '../layouts'
 import Header from '../components/Header'
 import LatestWorks from '../components/LatestWorks'
 import Section from '../components/Section'
+import Footer from '../components/Footer'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
+import AboutMe from '../components/AboutMe'
 
 type VimeoVideoNode = {
   node: {
@@ -67,7 +69,9 @@ const IndexPage: React.FC<Props> = memo(
           <Grid container>
             <Hidden mdDown>
               <Grid item md={2}>
-                <NavMenu />
+                <div style={{ position: 'sticky', top: 0 }}>
+                  <NavMenu />
+                </div>
               </Grid>
             </Hidden>
             <Grid item xs={12} md={10}>
@@ -90,27 +94,42 @@ const IndexPage: React.FC<Props> = memo(
               </Section>
 
               <Section name={NavigationItem.direction}>
+                <Typography component="h2">
+                  {navigationItemExtensions[NavigationItem.direction].label}
+                </Typography>
                 <LatestWorks items={items} />
-                {navigationItemExtensions[NavigationItem.direction].label}
               </Section>
 
               <Section name={NavigationItem.edition}>
-                Hello you are in section{' '}
-                {navigationItemExtensions[NavigationItem.edition].label}
+                <Typography component="h2">
+                  {navigationItemExtensions[NavigationItem.edition].label}
+                </Typography>
+                LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
+                MOLESTIE MAURIS VELIT, IN ALIQUET NEQUE ELEMENTUM NEC. ETIAM SIT
+                AMET MAURIS NON TELLUS LAOREET PORTTITOR. INTEGER QUIS PLACERAT
+                ERAT, NEC FAUCIBUS DUI.
               </Section>
 
               <Section name={NavigationItem.aboutMe}>
-                Hello you are in section{' '}
-                {navigationItemExtensions[NavigationItem.aboutMe].label}
+                <Typography component="h2">
+                  {navigationItemExtensions[NavigationItem.aboutMe].label}
+                </Typography>
+                <AboutMe />
               </Section>
 
               <Section name={NavigationItem.contact}>
-                Hello you are in section{' '}
-                {navigationItemExtensions[NavigationItem.contact].label}
+                <Typography component="h2">
+                  {navigationItemExtensions[NavigationItem.contact].label}
+                </Typography>
+                LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
+                MOLESTIE MAURIS VELIT, IN ALIQUET NEQUE ELEMENTUM NEC. ETIAM SIT
+                AMET MAURIS NON TELLUS LAOREET PORTTITOR. INTEGER QUIS PLACERAT
+                ERAT, NEC FAUCIBUS DUI.
               </Section>
             </Grid>
           </Grid>
         </Container>
+        <Footer />
       </IndexLayout>
     )
   }
