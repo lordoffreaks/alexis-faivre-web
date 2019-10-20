@@ -5,12 +5,15 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 import { scroller } from 'react-scroll'
 import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
+import { useCloseBurgerMenu } from '../hooks/useCloseBurgerMenu'
 
 const NavMenu: React.FunctionComponent<{}> = () => {
+  const { closeBurgerMenu } = useCloseBurgerMenu()
   const { navigationItem, setNavigationItem } = useSetNavigationItem()
   const handleListItemClick = (type: NavigationItem) => (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    closeBurgerMenu()
     e && e.preventDefault()
     setNavigationItem(type)
 

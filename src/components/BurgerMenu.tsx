@@ -1,24 +1,23 @@
 import React from 'react'
 import { fallDown as Menu } from 'react-burger-menu'
 import NavMenu from './NavMenu'
-import { centered } from '../hooks/useStyles'
+import { centered, burgerStyles } from '../hooks/useStyles'
+// @ts-ignore
+import { decorator as reduxBurgerMenu } from 'redux-burger-menu'
 
-const topHeight = '12px'
-const burgerIconHeight = '30px'
-const burgerIconsWidth = '36px'
-const burgerIconsColor = '#bdc3c7'
+const { topHeight, iconHeight, iconsWidth, iconsColor } = burgerStyles
 
 const styles = {
   bmBurgerButton: {
     ...centered,
-    position: 'fixed',
+    // position: 'fixed',
     top: topHeight,
-    width: burgerIconsWidth,
-    height: burgerIconHeight
+    width: iconsWidth,
+    height: iconHeight
   },
   bmBurgerBars: {
     height: '12%',
-    background: burgerIconsColor
+    background: iconsColor
   },
   bmBurgerBarsHover: {
     background: '#a90000'
@@ -26,12 +25,12 @@ const styles = {
   bmCrossButton: {
     ...centered,
     top: topHeight,
-    height: burgerIconHeight,
-    width: burgerIconsWidth
+    height: iconHeight,
+    width: iconsWidth
   },
   bmCross: {
-    background: burgerIconsColor,
-    height: burgerIconHeight
+    background: iconsColor,
+    height: iconHeight
   },
   bmMenuWrap: {
     position: 'fixed',
@@ -59,9 +58,19 @@ const styles = {
   }
 }
 
-const BurgerMenu: React.FunctionComponent<{}> = () => {
+type Props = {
+  isOpen: boolean
+  onStateChange: (newState: any) => void
+}
+
+const BurgerMenu: React.FunctionComponent<Props> = ({
+  onStateChange,
+  isOpen
+}) => {
   return (
     <Menu
+      isOpen={isOpen}
+      onStateChange={onStateChange}
       width="100%"
       id="burger-menu"
       pageWrapId={'page-wrap'}
@@ -75,4 +84,4 @@ const BurgerMenu: React.FunctionComponent<{}> = () => {
   )
 }
 
-export default BurgerMenu
+export default reduxBurgerMenu(BurgerMenu)
