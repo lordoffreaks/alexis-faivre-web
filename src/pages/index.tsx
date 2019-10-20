@@ -65,8 +65,8 @@ const IndexPage: React.FC<Props> = ({
       <Container>
         <Header title={`Web of Alexis Faivre`} />
         <Grid container>
-          <Hidden mdDown>
-            <Grid item md={2}>
+          <Hidden smDown>
+            <Grid item sm={2}>
               <Sidebar />
             </Grid>
           </Hidden>
