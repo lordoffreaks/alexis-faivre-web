@@ -47,6 +47,18 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Web Alexis Faivre`,
+        short_name: `Alexis Faivre`,
+        start_url: `/`,
+        background_color: `#f1f1f1`,
+        theme_color: `#000000`,
+        display: `standalone`,
+        icon: `src/svg/logo-alexis.svg`
+      }
+    },
     'gatsby-plugin-react-helmet'
   ]
 }
