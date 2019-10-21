@@ -38,20 +38,21 @@ const styles = {
   },
   bmMenu: {
     background: '#fff',
-    padding: '2.5em 1.5em 0',
+    padding: '3.5em 1.5em 0',
     fontSize: '1.15em'
   },
   bmMorphShape: {
     fill: '#373a47'
   },
   bmItemList: {
-    color: '#b8b7ad',
-    padding: '0.8em'
+    textAlign: 'center'
   },
   bmItem: {
     ...centered,
     display: 'block',
-    width: '90%'
+    width: '90%',
+    backgroundColor: 'transparent',
+    outline: 0
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.1)'

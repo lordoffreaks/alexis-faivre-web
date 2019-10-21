@@ -1,13 +1,13 @@
 import React from 'react'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import clsx from 'clsx'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 import { scroller } from 'react-scroll'
 import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
 import { useCloseBurgerMenu } from '../hooks/useCloseBurgerMenu'
+import { useStyles } from '../hooks/useStyles'
 
 const NavMenu: React.FunctionComponent<{}> = () => {
+  const classes = useStyles(undefined)
   const { closeBurgerMenu } = useCloseBurgerMenu()
   const { navigationItem, setNavigationItem } = useSetNavigationItem()
   const handleListItemClick = (type: NavigationItem) => (
@@ -27,20 +27,26 @@ const NavMenu: React.FunctionComponent<{}> = () => {
   }
 
   return (
-    <List>
+    <ul className={classes.navMenu}>
       {Object.values(navigationItemExtensions).map(({ type, label }) => {
         return (
-          <ListItem
+          <li
             key={type}
-            button
-            selected={navigationItem === type}
-            onClick={handleListItemClick(type)}
+            // selected={navigationItem === type}
+            className={classes.navMenuItem}
           >
-            <ListItemText primary={label} />
-          </ListItem>
+            <span
+              onClick={handleListItemClick(type)}
+              className={clsx(classes.navMenuText, {
+                [classes.navMenuTextSelected]: navigationItem === type
+              })}
+            >
+              {label}
+            </span>
+          </li>
         )
       })}
-    </List>
+    </ul>
   )
 }
 

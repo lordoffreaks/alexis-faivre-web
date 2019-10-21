@@ -57,5 +57,24 @@ export const useStyles = makeStyles({
     right: '0' /* horizontal center */
   },
   videoImageTitle: { textAlign: 'center', padding: '.5em 0' },
-  sidebar: { position: 'sticky', top: 0 }
+  sidebar: { position: 'sticky', top: 0 },
+  navMenu: {
+    paddingLeft: 0,
+    listStyleType: 'none'
+  },
+  navMenuItem: {
+    marginBottom: '1.5em',
+    cursor: 'pointer'
+  },
+  navMenuText: {
+    paddingBottom: '5px',
+    '&:hover': {
+      borderBottom: '2px solid rgb(104, 166, 147)',
+      fontWeight: 'bold'
+    }
+  },
+  navMenuTextSelected: {
+    borderBottom: '2px solid rgb(104, 166, 147)',
+    fontWeight: 'bold'
+  }
 })
