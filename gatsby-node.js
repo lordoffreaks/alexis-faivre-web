@@ -64,30 +64,30 @@ exports.onCreateNode = async ({
   // trip up. An empty string is still required in replacement to `null`.
 
   switch (node.internal.type) {
-    case 'MarkdownRemark':
-      const { permalink, layout } = node.frontmatter
-      const { relativePath } = getNode(node.parent)
+    // case 'MarkdownRemark':
+    //   const { permalink, layout } = node.frontmatter
+    //   const { relativePath } = getNode(node.parent)
 
-      let slug = permalink
+    //   let slug = permalink
 
-      if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`
-      }
+    //   if (!slug) {
+    //     slug = `/${relativePath.replace('.md', '')}/`
+    //   }
 
-      // Used to generate URL to view this content.
-      createNodeField({
-        node,
-        name: 'slug',
-        value: slug || ''
-      })
+    //   // Used to generate URL to view this content.
+    //   createNodeField({
+    //     node,
+    //     name: 'slug',
+    //     value: slug || ''
+    //   })
 
-      // Used to determine a page layout.
-      createNodeField({
-        node,
-        name: 'layout',
-        value: layout || ''
-      })
-      break
+    //   // Used to determine a page layout.
+    //   createNodeField({
+    //     node,
+    //     name: 'layout',
+    //     value: layout || ''
+    //   })
+    //   break
 
     case 'Vimeo____video':
       const { title, thumbnail } = node
@@ -131,47 +131,47 @@ exports.onCreateNode = async ({
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const allMarkdown = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000) {
-        edges {
-          node {
-            fields {
-              layout
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const allMarkdown = await graphql(`
+  //   {
+  //     allMarkdownRemark(limit: 1000) {
+  //       edges {
+  //         node {
+  //           fields {
+  //             layout
+  //             slug
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  if (allMarkdown.errors) {
-    console.error(allMarkdown.errors)
-    throw new Error(allMarkdown.errors)
-  }
+  // if (allMarkdown.errors) {
+  //   console.error(allMarkdown.errors)
+  //   throw new Error(allMarkdown.errors)
+  // }
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug, layout } = node.fields
+  // allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  //   const { slug, layout } = node.fields
 
-    createPage({
-      path: slug,
-      // This will automatically resolve the template to a corresponding
-      // `layout` frontmatter in the Markdown.
-      //
-      // Feel free to set any `layout` as you'd like in the frontmatter, as
-      // long as the corresponding template file exists in src/templates.
-      // If no template is set, it will fall back to the default `page`
-      // template.
-      //
-      // Note that the template has to exist first, or else the build will fail.
-      component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),
-      context: {
-        // Data passed to context is available in page queries as GraphQL variables.
-        slug
-      }
-    })
-  })
+  //   createPage({
+  //     path: slug,
+  //     // This will automatically resolve the template to a corresponding
+  //     // `layout` frontmatter in the Markdown.
+  //     //
+  //     // Feel free to set any `layout` as you'd like in the frontmatter, as
+  //     // long as the corresponding template file exists in src/templates.
+  //     // If no template is set, it will fall back to the default `page`
+  //     // template.
+  //     //
+  //     // Note that the template has to exist first, or else the build will fail.
+  //     component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),
+  //     context: {
+  //       // Data passed to context is available in page queries as GraphQL variables.
+  //       slug
+  //     }
+  //   })
+  // })
 
   const vimeoVideo = await graphql(`
     {
@@ -214,20 +214,4 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-}
-
-// Only required by `react-fullpage`
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /@fullpage/,
-            use: loaders.null()
-          }
-        ]
-      }
-    })
-  }
 }

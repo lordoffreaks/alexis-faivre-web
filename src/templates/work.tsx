@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+// @ts-ignore
 import VimeoPlayer from 'react-player/lib/players/Vimeo'
 
 import IndexLayout from '../layouts'

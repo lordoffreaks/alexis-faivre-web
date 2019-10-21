@@ -5,8 +5,8 @@ module.exports = {
   siteMetadata: {
     title: 'Web Alexis Faivre',
     description: 'Personal site for Alexis Faivre.',
-    keywords: 'Alexis Faivre, edition, video',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    keywords: 'Alexis Faivre, edition, direction, video',
+    siteUrl: 'https://alexis-faivre-web.netlify.com',
     author: {
       name: 'Alejandro Tabares',
       url: 'https://twitter.com/lord_of_freaks',
@@ -14,41 +14,12 @@ module.exports = {
     }
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'content',
-        path: `${__dirname}/src/content`
-      }
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1rem'
-            }
-          },
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
-    },
     'gatsby-transformer-json',
     'gatsby-plugin-material-ui',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
+        siteUrl: 'https://alexis-faivre-web.netlify.com'
       }
     },
     {
