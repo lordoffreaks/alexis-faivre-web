@@ -28,7 +28,7 @@ module.exports = {
         clientID: '5d2529e2b954d5711606361dca4f67ab4d089418',
         clientSecret: process.env.VIMEO_CLIENT_SECRET,
         // userID: '3302175' // Kåre
-        userID: '21912690' // Alexis
+        userID: '104142469' // Alexis
         // searchQuery: 'INSERT_SEARCH_QUERY',               // Optional
         // transformer(video) {                              // Optional
         //   video.newField = 'value';
