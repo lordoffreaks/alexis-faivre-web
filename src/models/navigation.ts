@@ -31,12 +31,12 @@ type NavigationItemExtensions = {
 // Order of this Array reflects order in the UI
 export const navigationItemExtensions: NavigationItemExtensions = {
   [NavigationItem.home]: generate(NavigationItem.home, 'HOME', '#FFF'),
+  [NavigationItem.edition]: generate(NavigationItem.edition, 'EDITION', '#AAA'),
   [NavigationItem.direction]: generate(
     NavigationItem.direction,
     'DIRECTION',
     '#000'
   ),
-  [NavigationItem.edition]: generate(NavigationItem.edition, 'EDITION', '#AAA'),
   [NavigationItem.aboutMe]: generate(
     NavigationItem.aboutMe,
     'ABOUT ME',

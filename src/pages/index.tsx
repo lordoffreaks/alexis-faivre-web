@@ -89,16 +89,13 @@ const IndexPage: React.FC<Props> = ({
               </Grid>
             </Section>
 
-            <Section name={NavigationItem.direction}>
-              <Typography component="h2">
-                {navigationItemExtensions[NavigationItem.direction].label}
-              </Typography>
+            <Section name={NavigationItem.edition}>
               <LatestWorks items={items} />
             </Section>
 
-            <Section name={NavigationItem.edition}>
+            <Section name={NavigationItem.direction}>
               <Typography component="h2">
-                {navigationItemExtensions[NavigationItem.edition].label}
+                {navigationItemExtensions[NavigationItem.direction].label}
               </Typography>
               LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
               MOLESTIE MAURIS VELIT, IN ALIQUET NEQUE ELEMENTUM NEC. ETIAM SIT
