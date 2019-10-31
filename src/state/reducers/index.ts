@@ -8,8 +8,17 @@ const setNavigationItem = (
   action: Action<ActionTypes.SET_NAVIGATION_ITEM>
 ) => action.navigationItem
 
+const setActiveVideo = (
+  _: State,
+  action: Action<ActionTypes.SET_ACTIVE_VIDEO>
+) => action.id
+
 const navigationItem = createReducer(NavigationItem.home, {
   [ActionTypes.SET_NAVIGATION_ITEM]: setNavigationItem
 })
 
-export { navigationItem }
+const activeVideo = createReducer(null, {
+  [ActionTypes.SET_ACTIVE_VIDEO]: setActiveVideo
+})
+
+export { navigationItem, activeVideo }

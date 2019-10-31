@@ -37,7 +37,10 @@ export const useStyles = makeStyles({
       top: burgerStyles.topHeight
     }
   },
-  videoImageContainer: { position: 'relative', cursor: 'pointer' },
+  videoImageContainer: {
+    position: 'relative',
+    cursor: 'pointer'
+  },
   videoImageItem: {
     zIndex: 1,
     margin: 'auto',

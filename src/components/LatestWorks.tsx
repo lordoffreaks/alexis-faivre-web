@@ -3,21 +3,11 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
 import VideoImage from './VideoImage'
-import { FluidObject } from 'gatsby-image'
-
-interface LatestWork {
-  title: string
-  url: string
-  slug: string
-  coverImage: {
-    childImageSharp: {
-      fluid: FluidObject
-    }
-  }
-}
+import { Video } from '../models/video'
+import { useSetActiveVideo } from '../hooks/useSetActiveVideo'
 
 interface OwnProps {
-  items: Array<LatestWork>
+  items: Array<Video>
 }
 
 type StateProps = {}
@@ -27,15 +17,21 @@ type DispatchProps = {}
 type Props = OwnProps & StateProps & DispatchProps
 
 const LatestWorks: React.FC<Props> = ({ items }) => {
+  const { activeVideo } = useSetActiveVideo()
   return (
     <>
-      <h2>LATEST WORKS</h2>
       <Grid container spacing={3}>
-        {items.map(({ slug, coverImage, url, title }) => {
+        {items.map(props => {
           return (
-            <Grid key={slug} item xs={12} sm={6}>
+            <Grid
+              key={props.id}
+              item
+              xs={12}
+              sm={activeVideo === props.id ? 12 : 6}
+              style={{ transition: 'max-width 1500ms' }}
+            >
               <Typography component="div">
-                <VideoImage coverImage={coverImage} url={url} title={title} />
+                <VideoImage {...props} />
               </Typography>
             </Grid>
           )
