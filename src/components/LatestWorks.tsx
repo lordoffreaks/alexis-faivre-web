@@ -22,16 +22,21 @@ const LatestWorks: React.FC<Props> = ({ items }) => {
     <>
       <Grid container spacing={3}>
         {items.map(props => {
+          const selected = activeVideo === props.id
+          const videoProps = {
+            ...props,
+            selected
+          }
           return (
             <Grid
               key={props.id}
               item
               xs={12}
-              sm={activeVideo === props.id ? 12 : 6}
+              sm={selected ? 12 : 6}
               style={{ transition: 'max-width 1500ms' }}
             >
               <Typography component="div">
-                <VideoImage {...props} />
+                <VideoImage {...videoProps} />
               </Typography>
             </Grid>
           )

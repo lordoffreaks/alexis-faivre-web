@@ -51,6 +51,15 @@ export const useStyles = makeStyles({
     right: '0' /* horizontal center */
   },
   videoImageTitle: { textAlign: 'center', padding: '.5em 0' },
+  videoPlayerWrapper: {
+    position: 'relative',
+    paddingTop: '56.25%' /* Player ratio: 100 / (1280 / 720) */
+  },
+  videoPlayer: {
+    position: 'absolute',
+    top: 0,
+    left: 0
+  },
   sidebar: { position: 'sticky', top: 0 },
   navMenu: {
     paddingLeft: 0,
