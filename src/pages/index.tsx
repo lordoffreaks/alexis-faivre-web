@@ -101,19 +101,14 @@ const IndexPage: React.FC<Props> = ({
               </Grid>
             </Section>
 
-            <Section name={NavigationItem.edition}>
-              <Typography component="h2">LATEST WORKS</Typography>
+            <Section name={NavigationItem.direction}>
+              <Typography component="h2">DIRECTION</Typography>
               <LatestWorks items={direction} />
             </Section>
 
             <Section name={NavigationItem.edition}>
               <Typography component="h2">EDITION</Typography>
               <LatestWorks items={edition} />
-            </Section>
-
-            <Section name={NavigationItem.direction}>
-              <Typography component="h2">DIRECTION</Typography>
-              <LatestWorks items={direction} />
             </Section>
 
             <Section name={NavigationItem.aboutMe}>

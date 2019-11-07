@@ -2,6 +2,8 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
+import TwitterIcon from '@material-ui/icons/Twitter'
+import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
 import { useStyles } from '../hooks/useStyles'
 import NavMenu from '../components/NavMenu'
@@ -11,30 +13,26 @@ const Footer: React.FunctionComponent<{}> = () => {
 
   return (
     <Grid container className={classes.footer}>
-      <Grid item xs={12}>
-        <Hidden mdDown>
-          <NavMenu />
-        </Hidden>
-      </Grid>
       <Grid container>
-        <Grid item xs={12} md={4}>
-          <Typography component="p">
-            LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
-            MOLESTIE MAURIS VELIT, IN ALIQUET NEQUE ELEMENTUM NEC. ETIAM SIT
-            AMET MAURIS NON TELLUS LAOREET PORTTITOR. INTEGER QUIS PLACERAT
-            ERAT, NEC FAUCIBUS DUI.
-          </Typography>
+        <Grid item xs={12} md={6}>
+          <Typography component="h2">CONTACT</Typography>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <h3>MADRID</h3>
+        <Grid item xs={12} md={3}>
           <Typography component="p">CONTACT DETAILS 987 654 321</Typography>
           <Typography component="p">HELLO@ALEXIS-FAIVRE.COM</Typography>
           <Typography component="p">MORE CONTACT DETAILS</Typography>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <h3>FOLLOW ME</h3>
-          <Typography component="p">SOCIAL</Typography>
-          <Typography component="p">SOCIAL</Typography>
+        <Grid item xs={12} md={3}>
+          <Typography component="p">
+            <TwitterIcon fontSize="large" color="primary">
+              Twitter
+            </TwitterIcon>
+          </Typography>
+          <Typography component="p">
+            <LinkedInIcon fontSize="large" color="primary">
+              LinkedIn
+            </LinkedInIcon>
+          </Typography>
           <Typography component="p">SOCIAL</Typography>
         </Grid>
       </Grid>
