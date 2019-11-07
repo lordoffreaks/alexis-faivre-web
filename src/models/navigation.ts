@@ -22,7 +22,7 @@ const generate = (
 }
 
 type NavigationItemExtensions = {
-  [key in NavigationItem]: NavigationItemExtension
+  [key in NavigationItem]?: NavigationItemExtension
 }
 
 // Order of this Array reflects order in the UI
@@ -30,6 +30,6 @@ export const navigationItemExtensions: NavigationItemExtensions = {
   [NavigationItem.home]: generate(NavigationItem.home, 'HOME'),
   [NavigationItem.direction]: generate(NavigationItem.direction, 'DIRECTION'),
   [NavigationItem.edition]: generate(NavigationItem.edition, 'EDITION'),
-  [NavigationItem.aboutMe]: generate(NavigationItem.aboutMe, 'ABOUT ME'),
+  // [NavigationItem.aboutMe]: generate(NavigationItem.aboutMe, 'ABOUT ME'),
   [NavigationItem.contact]: generate(NavigationItem.contact, 'CONTACT')
 }

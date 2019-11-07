@@ -6,7 +6,6 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
 import { useStyles } from '../hooks/useStyles'
-import NavMenu from '../components/NavMenu'
 
 const Footer: React.FunctionComponent<{}> = () => {
   const classes = useStyles(undefined)
@@ -15,7 +14,7 @@ const Footer: React.FunctionComponent<{}> = () => {
     <Grid container className={classes.footer}>
       <Grid container>
         <Grid item xs={12} md={6}>
-          <Typography component="h2">CONTACT</Typography>
+          <Typography variant="h2">CONTACT</Typography>
         </Grid>
         <Grid item xs={12} md={3}>
           <Typography component="p">CONTACT DETAILS 987 654 321</Typography>

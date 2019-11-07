@@ -16,8 +16,8 @@ import LatestWorks from '../components/LatestWorks'
 import Section from '../components/Section'
 import Footer from '../components/Footer'
 import { navigationItemExtensions, NavigationItem } from '../models/navigation'
-import AboutMe from '../components/AboutMe'
 import { partition } from '../helpers'
+import { FontWeightProperty } from 'csstype'
 
 type VimeoVideoNode = {
   node: {
@@ -86,8 +86,27 @@ const IndexPage: React.FC<Props> = ({
             <Section name={NavigationItem.home}>
               <Grid container>
                 <Grid item xs={12} md={6}>
-                  <Typography component="h1">
-                    Hello my name is <span>ALEXIS</span>
+                  <Typography variant="h2" style={{ fontSize: '1.75em' }}>
+                    HELLO MY NAME IS{' '}
+                    <Typography
+                      variant="h1"
+                      style={{
+                        fontWeight: 'light' as FontWeightProperty,
+                        marginTop: '.25em',
+                        lineHeight: '.7em'
+                      }}
+                    >
+                      ALEXIS{' '}
+                      <span
+                        style={{
+                          display: 'block',
+                          color: 'rgb(104, 166, 147)',
+                          lineHeight: 1
+                        }}
+                      >
+                        FAIVRE
+                      </span>
+                    </Typography>
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
@@ -102,24 +121,17 @@ const IndexPage: React.FC<Props> = ({
             </Section>
 
             <Section name={NavigationItem.direction}>
-              <Typography component="h2">DIRECTION</Typography>
+              <Typography variant="h2">DIRECTION</Typography>
               <LatestWorks items={direction} />
             </Section>
 
             <Section name={NavigationItem.edition}>
-              <Typography component="h2">EDITION</Typography>
+              <Typography variant="h2">EDITION</Typography>
               <LatestWorks items={edition} />
             </Section>
 
-            <Section name={NavigationItem.aboutMe}>
-              <Typography component="h2">
-                {navigationItemExtensions[NavigationItem.aboutMe].label}
-              </Typography>
-              <AboutMe />
-            </Section>
-
             <Section name={NavigationItem.contact}>
-              <Typography component="h2">
+              <Typography variant="h2">
                 {navigationItemExtensions[NavigationItem.contact].label}
               </Typography>
               LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
