@@ -3,15 +3,12 @@ name: Node CI
 on: [push]
 
 jobs:
-  container-job:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [12.x]
-
-    container:
-      image: node:lts-alpine
 
     steps:
       - uses: actions/checkout@v1
@@ -19,9 +16,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and test
+      - name: npm install, build, and test
         run: |
           npm ci
-          npm test
+          npm run test
         env:
-          CI: "true"
+          CI: true
