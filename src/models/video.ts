@@ -5,10 +5,10 @@ export interface Video {
   title: string
   url: string
   slug: string
-  tags: Array<{
+  tags: {
     name: string
     tag: string
-  }>
+  }[]
   coverImage: {
     childImageSharp: {
       fluid: FluidObject

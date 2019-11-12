@@ -18,15 +18,15 @@ import { NavigationItem } from '../models/navigation'
 import { partition } from '../helpers'
 import Contact from '../components/Contact'
 
-type VimeoVideoNode = {
+interface VimeoVideoNode {
   node: {
     id: number
     title: string
     url: string
-    tags: Array<{
+    tags: {
       name: string
       tag: string
-    }>
+    }[]
     fields: {
       slug: string
     }
@@ -38,10 +38,10 @@ type VimeoVideoNode = {
   }
 }
 
-type Props = {
+interface Props {
   data: {
     allVimeoVideo: {
-      edges: Array<VimeoVideoNode>
+      edges: VimeoVideoNode[]
     }
   }
 }
@@ -74,7 +74,7 @@ const IndexPage: React.FC<Props> = ({
         <BurgerMenu />
       </Hidden>
       <Container>
-        <Header title={`Web of Alexis Faivre`} />
+        <Header title="Web of Alexis Faivre" />
         <Grid container>
           <Hidden smDown>
             <Grid item sm={2}>

@@ -10,7 +10,7 @@ import { selectedRow } from '../helpers'
 import { useStyles } from '../hooks/useStyles'
 
 interface OwnProps {
-  items: Array<Video>
+  items: Video[]
 }
 
 type StateProps = {}

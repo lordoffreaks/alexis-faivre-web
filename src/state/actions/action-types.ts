@@ -1,4 +1,5 @@
-import { Action, AnyAction } from 'redux'
+import { AnyAction } from 'redux'
+
 export interface Action<T> extends AnyAction {
   type: T
 }

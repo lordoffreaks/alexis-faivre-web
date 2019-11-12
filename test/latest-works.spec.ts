@@ -12,7 +12,7 @@ describe('Latest works', () => {
     {
       id: 3
     }
-  ] as Array<Video>
+  ] as Video[]
 
   it.each`
     activeVideo | activeVideoIndexExpected | selectedVideoIndexExpected

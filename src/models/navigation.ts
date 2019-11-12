@@ -6,7 +6,7 @@ export enum NavigationItem {
   contact = 'contact'
 }
 
-type NavigationItemExtension = {
+interface NavigationItemExtension {
   type: NavigationItem
   label: string
 }

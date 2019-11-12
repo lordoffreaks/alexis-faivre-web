@@ -13,7 +13,7 @@ export function partition<T>(
   )
 }
 
-export const selectedRow = (items: Array<Video>, activeVideo: number) => {
+export const selectedRow = (items: Video[], activeVideo: number) => {
   const activeVideoIndex =
     activeVideo && items.findIndex(e => e.id === activeVideo)
   const activeVideoProps = activeVideo && items.find(e => e.id === activeVideo)

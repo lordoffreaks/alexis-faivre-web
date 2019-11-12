@@ -1,9 +1,9 @@
 import React from 'react'
 import { fallDown as Menu } from 'react-burger-menu'
-import NavMenu from './NavMenu'
-import { centered, burgerStyles } from '../hooks/useStyles'
 // @ts-ignore
 import { decorator as reduxBurgerMenu } from 'redux-burger-menu'
+import { burgerStyles, centered } from '../hooks/useStyles'
+import NavMenu from './NavMenu'
 
 const { topHeight, iconHeight, iconsWidth, iconsColor } = burgerStyles
 

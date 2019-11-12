@@ -1,5 +1,5 @@
-import { ActionTypes } from './actions/action-types'
 import { Reducer } from 'redux'
+import { ActionTypes } from './actions/action-types'
 
 type Handlers<T> = { [K in ActionTypes]?: Reducer<T> }
 
