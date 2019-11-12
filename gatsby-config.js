@@ -40,7 +40,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Montserrat', 'Raleway']
+          families: ['Montserrat:200,400', 'Raleway']
         }
       }
     },

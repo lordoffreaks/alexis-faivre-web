@@ -14,10 +14,9 @@ import IndexLayout from '../layouts'
 import Header from '../components/Header'
 import LatestWorks from '../components/LatestWorks'
 import Section from '../components/Section'
-import Footer from '../components/Footer'
-import { navigationItemExtensions, NavigationItem } from '../models/navigation'
+import { NavigationItem } from '../models/navigation'
 import { partition } from '../helpers'
-import { FontWeightProperty } from 'csstype'
+import Contact from '../components/Contact'
 
 type VimeoVideoNode = {
   node: {
@@ -91,7 +90,6 @@ const IndexPage: React.FC<Props> = ({
                     <Typography
                       variant="h1"
                       style={{
-                        fontWeight: 'light' as FontWeightProperty,
                         marginTop: '.25em',
                         lineHeight: '.7em'
                       }}
@@ -121,28 +119,26 @@ const IndexPage: React.FC<Props> = ({
             </Section>
 
             <Section name={NavigationItem.direction}>
-              <Typography variant="h2">DIRECTION</Typography>
+              <Typography variant="h2" style={{ marginBottom: '1em' }}>
+                DIRECTION
+              </Typography>
               <LatestWorks items={direction} />
             </Section>
 
             <Section name={NavigationItem.edition}>
-              <Typography variant="h2">EDITION</Typography>
+              <Typography variant="h2" style={{ marginBottom: '1em' }}>
+                EDITION
+              </Typography>
               <LatestWorks items={edition} />
             </Section>
 
             <Section name={NavigationItem.contact}>
-              <Typography variant="h2">
-                {navigationItemExtensions[NavigationItem.contact].label}
-              </Typography>
-              LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. AENEAN
-              MOLESTIE MAURIS VELIT, IN ALIQUET NEQUE ELEMENTUM NEC. ETIAM SIT
-              AMET MAURIS NON TELLUS LAOREET PORTTITOR. INTEGER QUIS PLACERAT
-              ERAT, NEC FAUCIBUS DUI.
+              <Contact />
             </Section>
           </Grid>
         </Grid>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </IndexLayout>
   )
 }

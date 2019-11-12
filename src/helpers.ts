@@ -10,3 +10,11 @@ export function partition<T>(
     [[], []]
   )
 }
+
+export const showSelectedRow = (
+  index: number,
+  selected: boolean,
+  props: any
+): boolean => {
+  return index % 2 === 0 ? false : selected || props !== undefined
+}

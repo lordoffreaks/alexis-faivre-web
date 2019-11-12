@@ -1,4 +1,33 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles'
+
+const monserrat = 'Montserrat, sans-serif'
+const raleway = 'Raleway, sans-serif'
+
+export const theme = createMuiTheme({
+  typography: {
+    fontFamily: raleway,
+    h1: {
+      fontFamily: monserrat,
+      fontWeight: 200
+    },
+    h2: {
+      fontFamily: monserrat,
+      fontSize: '1.5em'
+    },
+    h3: {
+      fontFamily: monserrat
+    },
+    h4: {
+      fontFamily: monserrat
+    },
+    h5: {
+      fontFamily: monserrat
+    },
+    h6: {
+      fontFamily: monserrat
+    }
+  }
+})
 
 export const centered = {
   position: 'absolute',
@@ -20,7 +49,7 @@ export const useStyles = makeStyles({
     padding: 0
   },
   section: {
-    margin: '250px 0'
+    margin: '5em 0'
   },
   footer: {
     backgroundColor: '#f1f1f1',
