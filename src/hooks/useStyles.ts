@@ -3,6 +3,8 @@ import { makeStyles, createMuiTheme } from '@material-ui/core/styles'
 const monserrat = 'Montserrat, sans-serif'
 const raleway = 'Raleway, sans-serif'
 
+const color = '#4a4a4a'
+
 export const theme = createMuiTheme({
   typography: {
     fontFamily: raleway,
@@ -40,6 +42,16 @@ export const burgerStyles = {
   iconHeight: '30px',
   iconsWidth: '36px',
   iconsColor: '#bdc3c7'
+}
+
+const arrowUp = {
+  display: 'block',
+  borderBottom: `16px solid ${color}`,
+  borderLeft: '16px solid transparent',
+  borderRight: '16px solid transparent',
+  height: 0,
+  width: 0,
+  margin: '2px auto 0'
 }
 
 export const useStyles = makeStyles({
@@ -80,6 +92,7 @@ export const useStyles = makeStyles({
     right: '0' /* horizontal center */
   },
   videoImageTitle: { textAlign: 'center', padding: '.5em 0' },
+  videoImageTitleArrow: arrowUp,
   videoPlayerWrapper: {
     position: 'relative',
     paddingTop: '56.25%' /* Player ratio: 100 / (1280 / 720) */

@@ -6,7 +6,8 @@ import VideoImage from './VideoImage'
 import { Video } from '../models/video'
 import { useSetActiveVideo } from '../hooks/useSetActiveVideo'
 import VideoPlayer from './VideoPlayer'
-import { showSelectedRow } from '../helpers'
+import { selectedRow } from '../helpers'
+import { useStyles } from '../hooks/useStyles'
 
 interface OwnProps {
   items: Array<Video>
@@ -20,38 +21,46 @@ type Props = OwnProps & StateProps & DispatchProps
 
 const LatestWorks: React.FC<Props> = ({ items }) => {
   const { activeVideo } = useSetActiveVideo()
-  const selectedStyles = { backgroundColor: '#4a4a4a', padding: '3em 1em' }
-  let selectedProps: any
+  const {
+    activeVideoIndex,
+    activeVideoProps,
+    selectedVideoIndex
+  } = selectedRow(items, activeVideo)
+  const classes = useStyles(undefined)
   return (
     <>
       <Grid container spacing={3}>
         {items.map((props, index) => {
-          const selected = activeVideo === props.id
-          const videoProps = {
-            ...props,
-            selected
-          }
-          if (selected) {
-            selectedProps = videoProps
-          }
-
-          const showSelected = showSelectedRow(index, selected, selectedProps)
-
           return (
             <>
-              <Grid key={props.id} item xs={12} sm={6}>
-                <VideoImage {...videoProps} />
+              <Grid
+                key={props.id}
+                item
+                xs={12}
+                sm={6}
+                style={{ paddingTop: 0, paddingBottom: 0 }}
+              >
+                <VideoImage {...props} />
+                {activeVideoIndex === index && (
+                  <div className={classes.videoImageTitleArrow}></div>
+                )}
               </Grid>
-              {showSelected && (
-                <Grid item xs={12} style={{ transition: 'max-width 1500ms' }}>
-                  <Typography
-                    component="div"
-                    style={selected ? selectedStyles : {}}
+              {selectedVideoIndex !== undefined &&
+                selectedVideoIndex === index && (
+                  <Grid
+                    item
+                    xs={12}
+                    style={{
+                      transition: 'max-width 1500ms',
+                      paddingTop: 0,
+                      backgroundColor: '#4a4a4a'
+                    }}
                   >
-                    <VideoPlayer {...selectedProps} />
-                  </Typography>
-                </Grid>
-              )}
+                    <Typography component="div" style={{}}>
+                      <VideoPlayer {...activeVideoProps} />
+                    </Typography>
+                  </Grid>
+                )}
             </>
           )
         })}

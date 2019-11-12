@@ -6,7 +6,7 @@ import { Video } from '../models/video'
 import { useStyles } from '../hooks/useStyles'
 import { useSetActiveVideo } from '../hooks/useSetActiveVideo'
 
-type Props = Video & { selected: boolean }
+type Props = Video
 
 const VideoImage: React.FunctionComponent<Props> = memo(
   ({ coverImage, id, title }) => {
@@ -15,7 +15,7 @@ const VideoImage: React.FunctionComponent<Props> = memo(
     const openVideo = () => setActiveVideo(id)
     const closeVideo = () => setActiveVideo(null)
     return (
-      <>
+      <div style={{ padding: '1em 0' }}>
         <div className={classes.videoImageContainer} onClick={openVideo}>
           <img className={classes.videoImageItem} src={playIcon} />
           {coverImage && <Img fluid={coverImage.childImageSharp.fluid} />}
@@ -27,7 +27,7 @@ const VideoImage: React.FunctionComponent<Props> = memo(
         >
           {title}
         </Typography>
-      </>
+      </div>
     )
   }
 )

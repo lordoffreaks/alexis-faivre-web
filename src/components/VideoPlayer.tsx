@@ -6,7 +6,7 @@ import { useSetActiveVideo } from '../hooks/useSetActiveVideo'
 import VimeoPlayer from 'react-player/lib/players/Vimeo'
 import Typography from '@material-ui/core/Typography'
 
-type Props = Video & { selected: boolean }
+type Props = Video
 
 const VideoPlayer: React.FunctionComponent<Props> = memo(
   ({ id, title, url }) => {
