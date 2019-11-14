@@ -13,13 +13,18 @@ export function partition<T>(
   )
 }
 
-export const selectedRow = (items: Video[], activeVideo: number) => {
+export const selectedRow = (
+  items: Video[],
+  activeVideo: number,
+  afterOddRow: boolean = true
+) => {
   const activeVideoIndex =
     activeVideo && items.findIndex(e => e.id === activeVideo)
   const activeVideoProps = activeVideo && items.find(e => e.id === activeVideo)
   let selectedVideoIndex = activeVideo && activeVideoIndex
 
   if (
+    afterOddRow &&
     activeVideo &&
     activeVideoIndex % 2 === 0 &&
     items[activeVideoIndex + 1] !== undefined
