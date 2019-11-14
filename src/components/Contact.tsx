@@ -11,22 +11,26 @@ const Contact: React.FunctionComponent<{}> = () => {
         <Typography variant="h1">CONTACT</Typography>
       </Grid>
       <Grid item xs={12} md={3}>
-        <Typography component="p">CONTACT DETAILS 987 654 321</Typography>
+        <Typography component="p">PHONE: 987 654 321</Typography>
         <Typography component="p">HELLO@ALEXIS-FAIVRE.COM</Typography>
         <Typography component="p">MORE CONTACT DETAILS</Typography>
       </Grid>
       <Grid item xs={12} md={3}>
-        <Typography component="p">
-          <TwitterIcon fontSize="large" color="primary">
-            Twitter
-          </TwitterIcon>
-        </Typography>
-        <Typography component="p">
-          <LinkedInIcon fontSize="large" color="primary">
-            LinkedIn
-          </LinkedInIcon>
-        </Typography>
-        <Typography component="p">SOCIAL</Typography>
+        <TwitterIcon
+          fontSize="large"
+          color="primary"
+          style={{ margin: '0.25em' }}
+        >
+          Twitter
+        </TwitterIcon>
+
+        <LinkedInIcon
+          fontSize="large"
+          color="primary"
+          style={{ margin: '0.25em' }}
+        >
+          LinkedIn
+        </LinkedInIcon>
       </Grid>
     </Grid>
   )

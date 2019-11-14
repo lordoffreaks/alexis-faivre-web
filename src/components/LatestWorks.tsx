@@ -22,7 +22,7 @@ type Props = OwnProps & StateProps & DispatchProps
 
 const LatestWorks: React.FC<Props> = ({ items }) => {
   const { activeVideo } = useSetActiveVideo()
-  const afterOddRow = useMediaQuery('(min-width:600px)')
+  const afterOddRow = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
   const {
     activeVideoIndex,
     activeVideoProps,
