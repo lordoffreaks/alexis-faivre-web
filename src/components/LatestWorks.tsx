@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import VideoImage from './VideoImage'
 import { Video } from '../models/video'
@@ -21,11 +22,12 @@ type Props = OwnProps & StateProps & DispatchProps
 
 const LatestWorks: React.FC<Props> = ({ items }) => {
   const { activeVideo } = useSetActiveVideo()
+  const afterOddRow = useMediaQuery((theme: any) => theme.breakpoints.up('sm'))
   const {
     activeVideoIndex,
     activeVideoProps,
     selectedVideoIndex
-  } = selectedRow(items, activeVideo)
+  } = selectedRow(items, activeVideo, afterOddRow)
   const classes = useStyles(undefined)
   return (
     <>
