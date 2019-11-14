@@ -40,7 +40,7 @@
     "clsx": "^1.0.4",
     "dotenv": "^8.2.0",
     "gatsby": "^2.17.13",
-    "gatsby-image": "^2.2.31",
+    "gatsby-image": "^2.2.32",
     "gatsby-plugin-canonical-urls": "^2.1.14",
     "gatsby-plugin-manifest": "^2.2.27",
     "gatsby-plugin-material-ui": "^2.1.6",
