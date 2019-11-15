@@ -55,7 +55,7 @@
     "gatsby-transformer-sharp": "^2.3.4",
     "react": "^16.11.0",
     "react-burger-menu": "^2.6.12",
-    "react-dom": "^16.11.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-player": "^1.14.1",
     "react-redux": "^7.1.3",
