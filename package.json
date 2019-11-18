@@ -49,7 +49,7 @@
     "gatsby-plugin-sharp": "^2.3.1",
     "gatsby-plugin-typescript": "^2.1.17",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^2.1.36",
+    "gatsby-source-filesystem": "^2.1.37",
     "gatsby-source-vimeo": "github:lordoffreaks/gatsby-source-vimeo",
     "gatsby-transformer-json": "^2.2.18",
     "gatsby-transformer-sharp": "^2.3.5",
