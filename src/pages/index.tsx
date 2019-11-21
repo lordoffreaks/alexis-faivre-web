@@ -17,6 +17,7 @@ import Section from '../components/Section'
 import { NavigationItem } from '../models/navigation'
 import { partition } from '../helpers'
 import Contact from '../components/Contact'
+import SectionHome from '../components/SectionHome'
 
 interface VimeoVideoNode {
   node: {
@@ -83,39 +84,7 @@ const IndexPage: React.FC<Props> = ({
           </Hidden>
           <Grid item xs={12} md={10}>
             <Section name={NavigationItem.home}>
-              <Grid container>
-                <Grid item xs={12} md={6}>
-                  <Typography variant="h2" style={{ fontSize: '1.75em' }}>
-                    HELLO MY NAME IS{' '}
-                    <Typography
-                      variant="h1"
-                      style={{
-                        marginTop: '.25em',
-                        lineHeight: '.7em'
-                      }}
-                    >
-                      ALEXIS{' '}
-                      <span
-                        style={{
-                          display: 'block',
-                          color: 'rgb(104, 166, 147)',
-                          lineHeight: 1
-                        }}
-                      >
-                        FAIVRE
-                      </span>
-                    </Typography>
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <Typography component="p">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    aenean molestie mauris velit, in aliquet neque elementum
-                    nec. etiam sit amet mauris non tellus laoreet porttitor.
-                    integer quis placerat erat, nec faucibus dui.
-                  </Typography>
-                </Grid>
-              </Grid>
+              <SectionHome />
             </Section>
 
             <Section name={NavigationItem.direction}>
