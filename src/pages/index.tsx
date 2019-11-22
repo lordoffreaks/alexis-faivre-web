@@ -2,22 +2,23 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { FluidObject } from 'gatsby-image'
 
+// @ts-ignore
+import ReactFullpage from '@fullpage/react-fullpage'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
-import Typography from '@material-ui/core/Typography'
 
-import BurgerMenu from '../components/BurgerMenu'
-import Sidebar from '../components/Sidebar'
-
+import SectionHome from '../components/SectionHome'
 import IndexLayout from '../layouts'
 import Header from '../components/Header'
+import Sidebar from '../components/Sidebar'
+import BurgerMenu from '../components/BurgerMenu'
 import LatestWorks from '../components/LatestWorks'
-import Section from '../components/Section'
-import { NavigationItem } from '../models/navigation'
 import { partition } from '../helpers'
 import Contact from '../components/Contact'
-import SectionHome from '../components/SectionHome'
+import Section from '../components/Section'
+import { NavigationItem } from '../models/navigation'
+import Typography from '@material-ui/core/Typography'
 
 interface VimeoVideoNode {
   node: {
@@ -47,7 +48,7 @@ interface Props {
   }
 }
 
-const IndexPage: React.FC<Props> = ({
+const FullPage: React.FC<Props> = ({
   data: {
     allVimeoVideo: { edges }
   }
@@ -68,7 +69,6 @@ const IndexPage: React.FC<Props> = ({
   const [direction, edition] = partition(items, item => {
     return item.tags.some(tag => tag.name === 'direccion')
   })
-
   return (
     <IndexLayout>
       <Hidden smUp>
@@ -86,33 +86,25 @@ const IndexPage: React.FC<Props> = ({
             <Section name={NavigationItem.home}>
               <SectionHome />
             </Section>
-
             <Section name={NavigationItem.direction}>
-              <Typography variant="h2" style={{ marginBottom: '1em' }}>
-                DIRECTION
-              </Typography>
+              <Typography variant="h2">DIRECTION</Typography>
               <LatestWorks items={direction} />
             </Section>
-
             <Section name={NavigationItem.edition}>
-              <Typography variant="h2" style={{ marginBottom: '1em' }}>
-                EDITION
-              </Typography>
+              <Typography variant="h2">EDITION</Typography>
               <LatestWorks items={edition} />
             </Section>
-
             <Section name={NavigationItem.contact}>
               <Contact />
             </Section>
           </Grid>
         </Grid>
       </Container>
-      {/* <Footer /> */}
     </IndexLayout>
   )
 }
 
-export default IndexPage
+export default FullPage
 
 export const pageQuery = graphql`
   query {

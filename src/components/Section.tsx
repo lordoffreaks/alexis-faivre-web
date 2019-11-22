@@ -8,7 +8,7 @@ import { useStyles } from '../hooks/useStyles'
 
 type Props = {
   name: NavigationItem
-}
+} & React.HTMLProps<HTMLDivElement>
 
 const Section: React.FunctionComponent<Props> = ({ name, children }) => {
   const classes = useStyles(undefined)
@@ -24,6 +24,7 @@ const Section: React.FunctionComponent<Props> = ({ name, children }) => {
     root: '#scrolling-container',
     rootMargin: '0% 0% -25%'
   }
+
   return (
     <Observer {...options}>
       <Element name={name} id={name} className={classes.section}>

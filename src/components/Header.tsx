@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const classes = useStyles(undefined)
   return (
-    <div className={classes.header}>
+    <div id="header" className={classes.header}>
       <img src={logo} alt={title} />
     </div>
   )

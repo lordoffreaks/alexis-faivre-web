@@ -18,7 +18,7 @@
     "clean": "rimraf public .cache",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "predev": "npm run clean",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",
@@ -26,12 +26,13 @@
     "test": "jest",
     "type-check": "tsc --noEmit",
     "preserve": "npm run build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve --host=0.0.0.0"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.16",
     "@material-ui/core": "^4.7.2",
     "@material-ui/icons": "^4.5.1",
     "@researchgate/react-intersection-observer": "^1.0.5",
@@ -53,7 +54,6 @@
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
-    "react-full-screen": "^0.2.4",
     "react-helmet": "^5.2.1",
     "react-player": "^1.14.2",
     "react-redux": "^7.1.3",
@@ -66,7 +66,6 @@
     "typescript": "^3.7.3"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.8",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.17",
     "@types/react": "^16.9.16",

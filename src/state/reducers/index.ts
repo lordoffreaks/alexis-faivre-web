@@ -13,6 +13,11 @@ const setActiveVideo = (
   action: Action<ActionTypes.SET_ACTIVE_VIDEO>
 ) => action.id
 
+const setActiveVideoReady = (
+  _: State,
+  action: Action<ActionTypes.SET_ACTIVE_VIDEO_READY>
+) => action.ready
+
 const navigationItem = createReducer(NavigationItem.home, {
   [ActionTypes.SET_NAVIGATION_ITEM]: setNavigationItem
 })
@@ -21,4 +26,8 @@ const activeVideo = createReducer(null, {
   [ActionTypes.SET_ACTIVE_VIDEO]: setActiveVideo
 })
 
-export { navigationItem, activeVideo }
+const activeVideoReady = createReducer(false, {
+  [ActionTypes.SET_ACTIVE_VIDEO_READY]: setActiveVideoReady
+})
+
+export { navigationItem, activeVideo, activeVideoReady }
