@@ -61,7 +61,7 @@ export const useStyles = makeStyles({
     padding: 0
   },
   section: {
-    margin: '5em 0'
+    // margin: '5em 0'
   },
   footer: {
     backgroundColor: '#f1f1f1',
@@ -70,9 +70,16 @@ export const useStyles = makeStyles({
       marginTop: 0
     }
   },
+  fullHeight: {
+    height: `calc(100vh - ${burgerStyles.topHeight} + ${burgerStyles.iconHeight})`,
+    '@media (min-width: 600px)': {
+      height: `100vh`
+    }
+  },
   header: {
-    position: 'relative',
-    textAlign: 'center',
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
     top: `calc(${burgerStyles.topHeight} + ${burgerStyles.iconHeight})`,
     '@media (min-width: 600px)': {
       top: burgerStyles.topHeight

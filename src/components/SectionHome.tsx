@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
 import { useTrail, animated } from 'react-spring'
+import { useStyles } from '../hooks/useStyles'
+
+import CortinaVertical from './CortinaVertical'
 
 type Trail = {
   opacity?: any
-  x: any
-  height: any
+  xy: any
+  height?: any
 }
 
 const Name: React.FunctionComponent<{}> = () => {
@@ -51,39 +54,46 @@ const SectionHome: React.FunctionComponent<{}> = () => {
   const items = [Name, Bio]
   const config = { mass: 5, tension: 2000, friction: 1000 }
 
-  const [toggle] = useState(true)
   const trails = useTrail(items.length, {
     config,
-    opacity: toggle ? 1 : 0,
-    x: toggle ? 0 : 20,
-    height: toggle ? 'auto' : 0,
-    from: { opacity: 0, x: 20, height: 0 }
+    opacity: 1,
+    xy: [0, 0],
+    height: '0',
+    from: { opacity: 0, xy: [200, 200], height: '100%' }
   })
 
+  const classes = useStyles(undefined)
+
   return (
-    <Grid container>
-      {trails.map(({ x, height, ...rest }: Trail, index: number) => {
-        const Comp = items[index]
-        return (
-          <Grid item xs={12} md={6}>
-            <animated.div
-              key={index}
-              className="trails-text"
-              style={{
-                ...rest,
-                transform: x.interpolate((x: any) => {
-                  return `translate3d(0,${x}px,0)`
-                })
-              }}
-            >
-              <animated.div style={{ height }}>
-                <Comp />
-              </animated.div>
-            </animated.div>
-          </Grid>
-        )
-      })}
-    </Grid>
+    <CortinaVertical barColor="#000" config={{ tension: 20 }}>
+      <Grid container className={classes.fullHeight} alignContent="center">
+        {trails.map(
+          ({ xy, height, opacity, ...rest }: Trail, index: number) => {
+            const Comp = items[index]
+            return (
+              <Grid item xs={12} md={6} key={index}>
+                <animated.div
+                  key={index}
+                  className="trails-text"
+                  style={{
+                    ...rest,
+                    transform: xy.interpolate((_: any, y: any) => {
+                      // const realX = index % 2 === 0 ? x : -x
+                      const realY = index % 2 === 0 ? y : -y
+                      return `translate3d(0,${realY}px,0)`
+                    })
+                  }}
+                >
+                  <animated.div style={{ height }}>
+                    <Comp />
+                  </animated.div>
+                </animated.div>
+              </Grid>
+            )
+          }
+        )}
+      </Grid>
+    </CortinaVertical>
   )
 }
 

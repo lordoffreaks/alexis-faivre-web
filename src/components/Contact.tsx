@@ -6,7 +6,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn'
 
 const Contact: React.FunctionComponent<{}> = () => {
   return (
-    <Grid container>
+    <Grid container style={{ height: '100vh' }} alignItems="center">
       <Grid item xs={12} md={6}>
         <Typography variant="h1">CONTACT</Typography>
       </Grid>

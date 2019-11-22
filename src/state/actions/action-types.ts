@@ -6,5 +6,6 @@ export interface Action<T> extends AnyAction {
 
 export enum ActionTypes {
   SET_NAVIGATION_ITEM = 'SET_NAVIGATION_ITEM',
-  SET_ACTIVE_VIDEO = 'SET_ACTIVE_VIDEO'
+  SET_ACTIVE_VIDEO = 'SET_ACTIVE_VIDEO',
+  SET_ACTIVE_VIDEO_READY = 'SET_ACTIVE_VIDEO_READY'
 }
