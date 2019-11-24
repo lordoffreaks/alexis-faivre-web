@@ -34,7 +34,7 @@
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "@material-ui/icons": "^4.5.1",
-    "@researchgate/react-intersection-observer": "^1.0.1",
+    "@researchgate/react-intersection-observer": "^1.0.4",
     "babel-plugin-styled-components": "^1.10.1",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
