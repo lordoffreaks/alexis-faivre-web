@@ -109,6 +109,7 @@ exports.onCreateNode = async ({
       try {
         const nodeName = `coverImage`
         const fileNode = await createRemoteFileNode({
+          parentNodeId: node.id,
           url: thumbnail.hd,
           store,
           cache,
