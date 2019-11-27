@@ -54,7 +54,7 @@
     "gatsby-transformer-json": "^2.2.19",
     "gatsby-transformer-sharp": "^2.3.5",
     "react": "^16.12.0",
-    "react-burger-menu": "^2.6.12",
+    "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
     "react-full-screen": "^0.2.4",
     "react-helmet": "^5.2.1",
