@@ -52,7 +52,7 @@
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-source-vimeo": "github:lordoffreaks/gatsby-source-vimeo",
     "gatsby-transformer-json": "^2.2.20",
-    "gatsby-transformer-sharp": "^2.3.6",
+    "gatsby-transformer-sharp": "^2.3.7",
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
