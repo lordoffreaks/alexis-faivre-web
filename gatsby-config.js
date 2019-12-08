@@ -14,7 +14,6 @@ module.exports = {
     }
   },
   plugins: [
-    'gatsby-transformer-json',
     'gatsby-plugin-material-ui',
     {
       resolve: 'gatsby-plugin-canonical-urls',
