@@ -77,6 +77,7 @@ const SectionHome: React.FunctionComponent<{}> = () => {
                   className="trails-text"
                   style={{
                     ...rest,
+                    opacity,
                     transform: xy.interpolate((_: any, y: any) => {
                       // const realX = index % 2 === 0 ? x : -x
                       const realY = index % 2 === 0 ? y : -y
