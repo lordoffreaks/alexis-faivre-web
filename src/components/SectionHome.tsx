@@ -65,7 +65,11 @@ const SectionHome: React.FunctionComponent<{}> = () => {
   const classes = useStyles(undefined)
 
   return (
-    <CortinaVertical barColor="#000" config={{ tension: 20 }}>
+    <>
+      <CortinaVertical
+        barColor="#000"
+        config={{ friction: 200, mass: 5, tension: 500 }}
+      />
       <Grid container className={classes.fullHeight} alignContent="center">
         {trails.map(
           ({ xy, height, opacity, ...rest }: Trail, index: number) => {
@@ -94,7 +98,7 @@ const SectionHome: React.FunctionComponent<{}> = () => {
           }
         )}
       </Grid>
-    </CortinaVertical>
+    </>
   )
 }
 

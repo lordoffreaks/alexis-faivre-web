@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   animated,
@@ -13,11 +13,12 @@ type Props = {
 }
 
 const CortinaVertical: React.FunctionComponent<Props> = ({
-  children,
   barColor = '#000',
   config = {}
 }) => {
   const colors = new Array(2).fill(barColor)
+
+  const [show, setShow] = useState(true)
 
   const springConfig = config || RSConfig.default
   const springs = useSprings(
@@ -27,22 +28,34 @@ const CortinaVertical: React.FunctionComponent<Props> = ({
         config: {
           ...springConfig
         },
+        onRest: () => setShow(false),
         width: '0%',
         // backgroundColor: 'rgba(0, 0, 0, 0)',
-        left: '-100%',
-        right: '-100%',
+        left: 0,
+        right: 0,
         from: {
           backgroundColor,
-          width: '100%',
-          left: '-50%',
-          right: '-50%'
+          width: '50%',
+          left: '0%',
+          right: '0%'
         }
       }
     })
   )
 
   return (
-    <div style={{ position: 'relative', width: '100%' }}>
+    <div
+      style={{
+        position: 'absolute',
+        width: '100%',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        backgroundColor: 'transparent',
+        zIndex: 3,
+        display: show ? 'block' : 'none'
+      }}
+    >
       {springs.map(({ backgroundColor, width, ...rest }, index) => {
         const isEven = index % 2 === 0
         return (
@@ -55,10 +68,10 @@ const CortinaVertical: React.FunctionComponent<Props> = ({
               ...(isEven ? { left: rest.left } : { right: rest.right }),
               position: 'absolute'
             }}
+            key={index}
           />
         )
       })}
-      {children}
     </div>
   )
 }
