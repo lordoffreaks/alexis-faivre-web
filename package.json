@@ -38,7 +38,7 @@
     "@researchgate/react-intersection-observer": "^1.0.5",
     "clsx": "^1.0.4",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.18.23",
+    "gatsby": "^2.18.25",
     "gatsby-image": "^2.2.38",
     "gatsby-plugin-canonical-urls": "^2.1.19",
     "gatsby-plugin-manifest": "^2.2.37",
