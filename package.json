@@ -48,7 +48,7 @@
     "gatsby-plugin-sharp": "^2.4.4",
     "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-source-filesystem": "^2.1.47",
     "gatsby-source-vimeo": "github:lordoffreaks/gatsby-source-vimeo",
     "gatsby-transformer-sharp": "^2.3.13",
     "react": "^16.12.0",
