@@ -43,7 +43,7 @@
     "gatsby-plugin-canonical-urls": "^2.1.20",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-material-ui": "^2.1.6",
-    "gatsby-plugin-offline": "^3.0.33",
+    "gatsby-plugin-offline": "^3.0.34",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-sharp": "^2.4.4",
     "gatsby-plugin-typescript": "^2.1.27",
