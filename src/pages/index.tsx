@@ -2,12 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { FluidObject } from 'gatsby-image'
 
-// @ts-ignore
-import ReactFullpage from '@fullpage/react-fullpage'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 
+import Typography from '@material-ui/core/Typography'
 import SectionHome from '../components/SectionHome'
 import IndexLayout from '../layouts'
 import Header from '../components/Header'
@@ -18,7 +17,6 @@ import { partition } from '../helpers'
 import Contact from '../components/Contact'
 import Section from '../components/Section'
 import { NavigationItem } from '../models/navigation'
-import Typography from '@material-ui/core/Typography'
 
 interface VimeoVideoNode {
   node: {

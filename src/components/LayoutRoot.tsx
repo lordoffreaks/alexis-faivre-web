@@ -20,7 +20,7 @@ const LayoutRoot: React.FC<LayoutRootProps> = ({
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={className} id={`outer-container`} style={style}>
+      <div className={className} id="outer-container" style={style}>
         {children}
       </div>
     </ThemeProvider>

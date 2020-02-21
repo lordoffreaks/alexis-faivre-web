@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 import { scroller } from 'react-scroll'
+import { navigationItemExtensions, NavigationItem } from '../models/navigation'
 import { useSetNavigationItem } from '../hooks/useSetNavigationItem'
 import { useCloseBurgerMenu } from '../hooks/useCloseBurgerMenu'
 import { useStyles } from '../hooks/useStyles'

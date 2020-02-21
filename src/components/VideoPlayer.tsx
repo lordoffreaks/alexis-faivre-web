@@ -3,11 +3,11 @@ import Img from 'gatsby-image'
 // @ts-ignore
 import VimeoPlayer from 'react-player/lib/players/Vimeo'
 
+import Typography from '@material-ui/core/Typography'
+import { Element, scroller } from 'react-scroll'
 import { Video } from '../models/video'
 import { useStyles } from '../hooks/useStyles'
 import useFullscreenStatus from '../hooks/useFullScreenStatus'
-import Typography from '@material-ui/core/Typography'
-import { Element, scroller } from 'react-scroll'
 
 type Props = Video & {
   even: boolean
@@ -44,8 +44,8 @@ const VideoPlayer: React.FunctionComponent<Props> = memo(
               <VimeoPlayer
                 url={url}
                 className={classes.videoPlayer}
-                width={`100%`}
-                height={`100%`}
+                width="100%"
+                height="100%"
                 controls
                 light
                 playing={showVideo}

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { State } from '../state/state'
 import { useActions } from './useActions'
 
-type CloseBurgerMenu = {
+interface CloseBurgerMenu {
   closeBurgerMenu: () => void
   isOpen: boolean
 }

@@ -1,9 +1,6 @@
 import { Video } from './models/video'
 
-export function partition<T>(
-  list: Array<T>,
-  predicate: (a: T) => boolean
-): Array<Array<T>> {
+export function partition<T>(list: T[], predicate: (a: T) => boolean): T[][] {
   return list.reduce(
     (acc, e) => {
       acc[predicate(e) ? 0 : 1].push(e)

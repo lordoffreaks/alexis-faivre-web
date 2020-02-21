@@ -8,7 +8,7 @@ import { useStyles } from '../hooks/useStyles'
 
 import CortinaVertical from './CortinaVertical'
 
-type Trail = {
+interface Trail {
   opacity?: any
   xy: any
   height?: any

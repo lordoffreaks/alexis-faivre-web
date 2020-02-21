@@ -5,6 +5,7 @@ type Handlers<T> = { [K in ActionTypes]?: Reducer<T> }
 
 export interface BasicAction {
   type: ActionTypes
+  // @typescript-eslint/no-explicit-any
   [other: string]: any
 }
 

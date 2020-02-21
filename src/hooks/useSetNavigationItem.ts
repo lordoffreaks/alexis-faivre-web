@@ -4,7 +4,7 @@ import * as actionCreators from '../state/actions/navigation-item'
 import { State } from '../state/state'
 import { NavigationItem } from '../models/navigation'
 
-type UseSetNavigationItem = {
+interface UseSetNavigationItem {
   navigationItem: NavigationItem
   setNavigationItem: (navigationItem: NavigationItem) => void
 }

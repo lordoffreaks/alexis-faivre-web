@@ -3,15 +3,9 @@ import Grid from '@material-ui/core/Grid'
 import VideoPlayer from './VideoPlayer'
 import { Video } from '../models/video'
 
-interface OwnProps {
+interface Props {
   items: Video[]
 }
-
-type StateProps = {}
-
-type DispatchProps = {}
-
-type Props = OwnProps & StateProps & DispatchProps
 
 const LatestWorks: React.FC<Props> = ({ items }) => {
   return (

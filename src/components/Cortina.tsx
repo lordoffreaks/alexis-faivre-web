@@ -7,7 +7,7 @@ import {
   config as RSConfig
 } from 'react-spring'
 
-type Props = {
+interface Props {
   rows: number
   barColor: string
   config: SpringConfig

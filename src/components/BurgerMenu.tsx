@@ -59,8 +59,9 @@ const styles = {
   }
 }
 
-type Props = {
+interface Props {
   isOpen: boolean
+  // @typescript-eslint/no-explicit-any
   onStateChange: (newState: any) => void
 }
 
@@ -74,8 +75,8 @@ const BurgerMenu: React.FunctionComponent<Props> = ({
       onStateChange={onStateChange}
       width="100%"
       id="burger-menu"
-      pageWrapId={'page-wrap'}
-      outerContainerId={'outer-container'}
+      pageWrapId="page-wrap"
+      outerContainerId="outer-container"
       styles={styles}
     >
       <main id="page-wrap">

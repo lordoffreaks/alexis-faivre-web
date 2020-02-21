@@ -33,13 +33,15 @@ function getBrowserFullscreenElementProp() {
   }
   if (typeof document.fullscreenElement !== 'undefined') {
     return 'fullscreenElement'
-  } else if (typeof (document as any).mozFullScreenElement !== 'undefined') {
-    return 'mozFullScreenElement'
-  } else if (typeof (document as any).msFullscreenElement !== 'undefined') {
-    return 'msFullscreenElement'
-  } else if (typeof (document as any).webkitFullscreenElement !== 'undefined') {
-    return 'webkitFullscreenElement'
-  } else {
-    throw new Error('fullscreenElement is not supported by this browser')
   }
+  if (typeof (document as any).mozFullScreenElement !== 'undefined') {
+    return 'mozFullScreenElement'
+  }
+  if (typeof (document as any).msFullscreenElement !== 'undefined') {
+    return 'msFullscreenElement'
+  }
+  if (typeof (document as any).webkitFullscreenElement !== 'undefined') {
+    return 'webkitFullscreenElement'
+  }
+  throw new Error('fullscreenElement is not supported by this browser')
 }
