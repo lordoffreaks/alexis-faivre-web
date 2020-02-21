@@ -15,6 +15,7 @@
   "scripts": {
     "prebuild": "npm run clean",
     "build": "gatsby build",
+    "check": "tsc --noEmit",
     "clean": "rimraf public .cache",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "predev": "npm run clean",
