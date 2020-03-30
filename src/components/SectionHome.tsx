@@ -14,7 +14,7 @@ interface Trail {
   height?: any
 }
 
-const Name: React.FunctionComponent<{}> = () => {
+const Name: React.FunctionComponent<{ classes: any }> = () => {
   return (
     <Typography variant="h2" style={{ fontSize: '1.75em' }}>
       HELLO MY NAME IS{' '}
@@ -40,13 +40,51 @@ const Name: React.FunctionComponent<{}> = () => {
   )
 }
 
-const Bio: React.FunctionComponent<{}> = () => {
+const Bio: React.FunctionComponent<{ classes: any }> = ({ classes }) => {
   return (
-    <Typography component="p">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean molestie
-      mauris velit, in aliquet neque elementum nec. etiam sit amet mauris non
-      tellus laoreet porttitor. integer quis placerat erat, nec faucibus dui.
-    </Typography>
+    <>
+      <Typography component="p" className={classes.sectionHome}>
+        From a very young age I was enchanted by the sensation that occurs when
+        gluing two shots and adding music to it, it has always seemed incredibly
+        magical to me.
+      </Typography>
+      <Typography component="p" className={classes.sectionHome}>
+        That magic has bewitched me for more than 25 years planning and editing
+        Advertising Campaigns, video clips, Films, International TV Series for
+        Advertising Agencies, Production Companies or Film and Advertising
+        Directors. Due to my obsession with seeing new works,{' '}
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://www.axisaudiovisualresearch.com/"
+          title="Axis audiovisual research website"
+        >
+          Axisaudiovisualresearch
+        </a>{' '}
+        creates a company dedicated to the search for new and impressive
+        audiovisual references, both Photos and Videos at an international
+        level, with the aim of visually supporting Creatives and Directors from
+        around the world in specific projects.
+      </Typography>
+      <Typography component="p" className={classes.sectionHome}>
+        Without neglecting editing, I have decided to make the leap to the
+        direction in a more continuous way, always supported by the{' '}
+        <a
+          target="_blank"
+          rel="noopener"
+          href="https://www.axisaudiovisualresearch.com/"
+          title="Axis audiovisual research website"
+        >
+          Axisaudiovisualresearch
+        </a>{' '}
+        family (designers, editors, thecnical 3d, writers.) Ready to face any
+        challenge that may arise in any country and language. . Here you can see
+        some jobs as Director and a Selection of jobs as editor.
+      </Typography>
+      <Typography component="p" className={classes.sectionHome}>
+        Receive a cordial and affectionate greeting.
+      </Typography>
+    </>
   )
 }
 
@@ -90,7 +128,7 @@ const SectionHome: React.FunctionComponent<{}> = () => {
                   }}
                 >
                   <animated.div style={{ height }}>
-                    <Comp />
+                    <Comp classes={classes} />
                   </animated.div>
                 </animated.div>
               </Grid>

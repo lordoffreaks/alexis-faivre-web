@@ -39,19 +39,19 @@
     "@researchgate/react-intersection-observer": "^1.0.5",
     "clsx": "^1.1.0",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.19.19",
+    "gatsby": "^2.20.9",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-canonical-urls": "^2.1.20",
-    "gatsby-plugin-manifest": "^2.2.41",
+    "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-offline": "^3.0.35",
     "gatsby-plugin-react-helmet": "^3.1.22",
-    "gatsby-plugin-sharp": "^2.4.5",
+    "gatsby-plugin-sharp": "^2.5.3",
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-source-vimeo": "github:lordoffreaks/gatsby-source-vimeo",
-    "gatsby-transformer-sharp": "^2.3.14",
+    "gatsby-transformer-sharp": "^2.4.3",
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
@@ -84,6 +84,6 @@
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^25.2.0"
+    "ts-jest": "^25.3.0"
   }
 }

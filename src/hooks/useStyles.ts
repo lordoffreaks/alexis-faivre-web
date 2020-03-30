@@ -76,6 +76,9 @@ export const useStyles = makeStyles({
       height: `100vh`
     }
   },
+  sectionHome: {
+    padding: '.5rem 0'
+  },
   header: {
     position: 'absolute',
     left: '50%',
