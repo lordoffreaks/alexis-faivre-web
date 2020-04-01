@@ -12,7 +12,8 @@ const Contact: React.FunctionComponent<{}> = () => {
       </Grid>
       <Grid item xs={12} md={3}>
         <Typography component="p">PHONE: 987 654 321</Typography>
-        <Typography component="p">HELLO@ALEXIS-FAIVRE.COM</Typography>
+        <Typography component="p">ALEXISAXIS11@GMAIL.COM</Typography>
+        <Typography component="p">JAIME@AXISAUDIOVISUALRESEARCH.COM</Typography>
       </Grid>
       <Grid item xs={12} md={3}>
         <Link
