@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography'
 import { useTrail, animated } from 'react-spring'
 import { useStyles } from '../hooks/useStyles'
 
+// @ts-ignore
+import ShowMoreText from 'react-show-more-text'
+
 import CortinaVertical from './CortinaVertical'
 
 interface Trail {
@@ -42,7 +45,7 @@ const Name: React.FunctionComponent<{ classes: any }> = () => {
 
 const Bio: React.FunctionComponent<{ classes: any }> = ({ classes }) => {
   return (
-    <>
+    <ShowMoreText>
       <Typography component="p" className={classes.sectionHome}>
         From a very young age I was enchanted by the sensation that occurs when
         gluing two shots and adding music to it, it has always seemed incredibly
@@ -84,7 +87,7 @@ const Bio: React.FunctionComponent<{ classes: any }> = ({ classes }) => {
       <Typography component="p" className={classes.sectionHome}>
         Receive a cordial and affectionate greeting.
       </Typography>
-    </>
+    </ShowMoreText>
   )
 }
 

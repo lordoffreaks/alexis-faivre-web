@@ -59,6 +59,7 @@
     "react-player": "^1.15.2",
     "react-redux": "^7.2.0",
     "react-scroll": "^1.7.16",
+    "react-show-more-text": "^1.4.0",
     "react-spring": "^8.0.27",
     "redux": "^4.0.5",
     "redux-burger-menu": "^0.2.8",
