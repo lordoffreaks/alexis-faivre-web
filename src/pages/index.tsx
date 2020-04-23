@@ -51,18 +51,20 @@ const FullPage: React.FC<Props> = ({
     allVimeoVideo: { edges }
   }
 }) => {
-  const items = edges.map(({ node }) => {
-    const {
-      fields: { slug },
-      id,
-      ...rest
-    } = node
-    return {
-      id: Number(id),
-      slug,
-      ...rest
-    }
-  })
+  const items = edges
+    .map(({ node }) => {
+      const {
+        fields: { slug },
+        id,
+        ...rest
+      } = node
+      return {
+        id: Number(id),
+        slug,
+        ...rest
+      }
+    })
+    .sort((a, b) => a.title > b.title)
 
   const [direction, edition] = partition(items, item => {
     return item.tags.some(tag => tag.name === 'direccion')
