@@ -64,7 +64,7 @@ const FullPage: React.FC<Props> = ({
         ...rest
       }
     })
-    .sort((a, b) => a.title > b.title)
+    .sort((a, b) => Number(a.title > b.title))
 
   const [direction, edition] = partition(items, item => {
     return item.tags.some(tag => tag.name === 'direccion')
