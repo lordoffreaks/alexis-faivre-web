@@ -24,7 +24,8 @@ module.exports = {
     {
       resolve: `gatsby-source-vimeo`,
       options: {
-        clientID: '5d2529e2b954d5711606361dca4f67ab4d089418',
+        clientID: '3672d5e6e5f80a45f7fe04785d58a062fc4339d8',
+        // clientID: '5d2529e2b954d5711606361dca4f67ab4d089418',
         clientSecret: process.env.VIMEO_CLIENT_SECRET,
         // userID: '3302175' // Kåre
         userID: '104142469' // Alexis
